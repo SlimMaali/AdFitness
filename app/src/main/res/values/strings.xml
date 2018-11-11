@@ -1,0 +1,33 @@
+<resources>
+    <string name="app_name">AdFitness</string>
+
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+
+    <string name="welcome">Bienvenue Sur AdFitness</string>
+    <string name="welcome_msg">L\'application AdFitness - gratuite et pour tous.</string>
+    <string name="our_club">Notre Club</string>
+    <string name="join_message">Rejoigner nos cours collectifs en reservant votre place depuis votre smartphone</string>
+    <string name="skip">SKIP</string>
+    <string name="email_hint">Adresse Email</string>
+    <string name="password_hint">Mot de passe</string>
+    <string name="sign_in_with_facebook">Connectez-vous avec Facebook</string>
+    <string name="sign_in_with_twitter">Connectez-vous avec Twitter</string>
+    <string name="forgot_password">Mot de passe oublié?</string>
+    <string name="new_here_sign_up">Nouveau ici? S\'inscrire</string>
+    <string name="home">Accueil</string>
+    <string name="personal_trainer">COACHY LIVE</string>
+    <string name="my_course">Mes Cours</string>
+    <string name="setting">Réglages</string>
+    <string name="extra_1">Extra One</string>
+    <string name="extra_2">Extra Two</string>
+    <string name="extra_3">Extra Three</string>
+    <string name="drawer_close">Drawer Closed</string>
+    <string name="drawer_open">Drawer Opened</string>
+    <string name="default_text">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua</string>
+    <string name="password_error">Le mot de passe doit avoir plus de 6 caractères</string>
+    <string name="invalid_email">Email invalide</string>
+    <string name="search_title">Chercher</string>
+    <string name="search_hint">Chercher</string>
+
+</resources>

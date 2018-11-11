@@ -1,0 +1,151 @@
+<android.support.v4.widget.NestedScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context="com.as.AdFitness.fragments.ShopFragment">
+
+    <android.support.v7.widget.LinearLayoutCompat
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical">
+
+        <android.support.v7.widget.AppCompatRatingBar
+            android:id="@+id/ratingBar"
+            android:layout_gravity="center"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight=".9" />
+
+        <android.support.v7.widget.AppCompatTextView
+            android:layout_marginTop="10dp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Sub Menu One"
+            android:padding="10dp"
+            android:textStyle="bold"
+            android:textColor="@color/black"/>
+
+        <android.support.v7.widget.LinearLayoutCompat
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:padding="10dp"
+            android:orientation="vertical">
+
+            <android.support.v7.widget.AppCompatTextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textColor="@color/seek_orange"
+                android:layout_gravity="center"
+                android:textStyle="bold"
+                android:text="Carbohydrate"/>
+
+            <android.support.v7.widget.AppCompatSeekBar
+                android:id="@+id/seekBar"
+                android:layout_marginTop="5dp"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:splitTrack="false"
+                android:minHeight="5dp"
+                android:minWidth="5dp"
+                android:maxHeight="10dp"
+                android:maxWidth="10dp"
+                android:progress="80"
+                android:thumb="@drawable/orange_seekbar_thumb"
+                android:progressDrawable="@drawable/orange_seekbar_style"/>
+
+            <android.support.v7.widget.AppCompatTextView
+                android:layout_marginTop="20dp"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textColor="@color/seek_green"
+                android:textStyle="bold"
+                android:layout_gravity="center"
+                android:text="Fats"/>
+
+            <android.support.v7.widget.AppCompatSeekBar
+                android:id="@+id/seekBar2"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="5dp"
+                android:splitTrack="false"
+                android:minHeight="5dp"
+                android:minWidth="5dp"
+                android:maxHeight="10dp"
+                android:maxWidth="10dp"
+                android:progress="60"
+                android:thumb="@drawable/green_seekbar_thumb"
+                android:progressDrawable="@drawable/green_seekbar_style"/>
+
+            <android.support.v7.widget.AppCompatTextView
+                android:layout_marginTop="20dp"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:textStyle="bold"
+                android:textColor="@color/seek_blue"
+                android:text="Protein"/>
+
+            <android.support.v7.widget.AppCompatSeekBar
+                android:layout_marginTop="5dp"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:splitTrack="false"
+                android:minHeight="5dp"
+                android:minWidth="5dp"
+                android:maxHeight="10dp"
+                android:maxWidth="10dp"
+                android:progress="40"
+                android:thumb="@drawable/blue_seekbar_thumb"
+                android:progressDrawable="@drawable/blue_seekbar_style" />
+
+        </android.support.v7.widget.LinearLayoutCompat>
+
+        <android.support.v7.widget.AppCompatTextView
+            android:layout_marginTop="20dp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Sub Menu Two"
+            android:padding="10dp"
+            android:textStyle="bold"
+            android:textColor="@color/black"/>
+
+        <android.support.v7.widget.LinearLayoutCompat
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:padding="10dp"
+            android:orientation="horizontal">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:layout_gravity="center"
+                android:text="Settings One"/>
+
+            <android.support.v7.widget.SwitchCompat
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"/>
+
+        </android.support.v7.widget.LinearLayoutCompat>
+
+        <android.support.v7.widget.LinearLayoutCompat
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:padding="10dp"
+            android:orientation="horizontal">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:text="Settings Two"/>
+
+            <CheckBox
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"/>
+
+        </android.support.v7.widget.LinearLayoutCompat>
+
+    </android.support.v7.widget.LinearLayoutCompat>
+
+</android.support.v4.widget.NestedScrollView>

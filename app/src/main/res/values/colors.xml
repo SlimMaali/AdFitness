@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="colorPrimary">#ff8000</color>
+    <color name="colorPrimaryDark">#ff4000</color>
+    <color name="colorAccent">#ffbf00</color><!-- #FF4081 -->
+
+    <color name="statusBarColor">#303F9F</color>
+    <color name="navigationBarColor">@android:color/black</color>
+    <color name="white">@android:color/white</color>
+    <color name="blackOverlay">#BF000000</color>
+    <color name="black">#000000</color>
+    <color name="redOverlay">#6F8A0707</color>
+
+    <color name="fb_color">#3b5998</color>
+    <color name="twitter_color">#0084b4</color>
+    <color name="grey">#ccc</color>
+    <color name="seek_blue">#0099e6</color>
+    <color name="seek_orange">#ca430a</color>
+    <color name="seek_green">#004010</color>
+
+</resources>

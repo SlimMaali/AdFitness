@@ -1,0 +1,150 @@
+<html>
+	<head>
+		<!-- Basic -->
+		<meta charset="utf-8">
+		<title>Recipe - Documentation</title>		
+		<meta name="keywords" content="Recipe Android App" />
+		<meta name="description" content="Recipe - Android App Documentation">
+		<meta name="author" content="ahyoxsoft.com">
+
+		<!-- Mobile Metas -->
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+		<!-- Web Fonts  -->
+		<link href="http://fonts.googleapis.com/css?family=Open+Sans:300,400,600,700,800" rel="stylesheet" type="text/css">
+
+		<!-- Vendor CSS -->
+		<link rel="stylesheet" href="assets/vendor/bootstrap/bootstrap.css">
+		<link rel="stylesheet" href="assets/vendor/fontawesome/css/font-awesome.css">
+
+		<!-- Theme CSS -->
+		<link rel="stylesheet" href="assets/css/docs.css">
+
+	</head>
+	<body>
+		<header>
+			<nav class="navbar navbar-default navbar-fixed-top">
+				<div class="container-full">
+					<div class="navbar-header">
+						<button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
+							<span class="sr-only">Toggle navigation</span>
+							<span class="icon-bar"></span>
+							<span class="icon-bar"></span>
+							<span class="icon-bar"></span>
+						</button>
+						<div class="top">
+							<ul>
+								<li>
+									<img class="logo" height="30" src="assets/img/logo.png" alt="Porto">
+								</li>
+								<li>
+									<span>Version: <strong class="version">1.0.0</strong></span>
+								</li>
+								<li class="hidden-xs">
+									<span>Created: <strong><i class="fa fa-calendar"></i> 12/15/2017</strong></span>
+								</li>
+								<li class="hidden-xs">
+									<span>Latest Update: <strong><i class="fa fa-calendar"></i> 03/10/2018</strong></span>
+								</li>
+							</ul>
+						</div>
+					</div>
+					<div id="navbar" class="navbar-collapse collapse">
+						<ul class="nav navbar-nav navbar-right">
+							<li><a target="_blank" href="http://ahyoxsoft.com/contact-us.php">Contact Us</a></li>
+						</ul>
+					</div>
+				</div>
+			</nav>
+
+			<div class="container-full">
+			<div class="row">
+				<div class="col-md-12 topper">
+					<p class="">Thank you for purchasing our App template. If you have any questions that are beyond the scope of this help file, please feel free to email me <a href="mailto:ahyoxsoft@gmail.com"><strong>ahyoxsoft@gmail.com</strong></a>. Thanks so much!</p>
+				</div>
+			</div>
+		</div>
+		</header>
+
+		<div class="container">
+			<div class="row">
+				<h3>File Structure</h3>
+				<p>Below is the structure of the recipe template:</p>
+				<ul>
+					<li><code>/Recipe</code>
+						<ul>
+							<li>
+								<code>/app</code>
+								<ul>
+									<li><code>app.realease.apk</code>(Recipe APK)</li>
+									<li>
+										<code>/src</code>
+										<ul>
+											<li>
+												<code>/main</code>
+												<ul>
+													<li><code>AndroidManifest.xml</code> (App Manifest)</li>
+													<li><code>/java</code> (App source code)</li>
+													<li><code>/xml</code> (App xml code)</li>
+												</ul>
+											</li>
+											<li><code>/test</code></li>
+											<li><code>/androidTest</code></li>
+										</ul>
+									</li>
+								</ul>
+							</li>
+							<li>
+								<code>/build</code>
+								<ul>
+									<li><code>...</code> (System Properties)</li>
+								</ul>
+							</li>
+							<li>
+								<code>/gradle</code>
+								<ul>
+									<li><code>...</code> (System Properties)</li>
+								</ul>
+							</li>
+							<li>
+								<code>/Documentation</code>
+								<ul>
+									<li><code>/assets</code>(Documentation resources)</li>
+									<li><code>index.html</code> (App Documentation)</li>
+								</ul>
+							</li>
+							<li><code>/gradlew</code> (System file)</li>
+							<li><code>/gradlew.bat</code> (System file)</li>
+							<li><code>/recipe.iml</code>(System file)</li>
+							<li><code>/settings.gradle</code> (System file)</li>
+							<li><code>/build.gradle</code> (System file)</li>
+							<li><code>/gradle.properties</code> (System file)</li>
+						</li>
+					</li>
+				</ul>
+
+				<h3>Source code structure</h3>
+				<p>The source code are organized into folder for easy navigation:</p>
+				<ul>
+					<li><code>/</code> The root folder is where all the activity(ies) used resides</li>
+					<li><code>extra:</code> This contains the three (3) extra pages designed for free for your usage</li>
+					<li><code>fragment:</code> Contains all the fragment used in the app such as explore, my recipe, settings etc...</li>
+					<li><code>utility:</code> Contains utility classes such as adapter classes for recyclieView, avatar image manipulation etc...</li>
+				</ul>
+
+				<h3>How to test the app</h3>
+				<p>Testing the app is very easy, below are the steps you can use to test the template. If you're using a physical device (i.e phone) ensure it allows installation outside playstore.:</p>
+				<ul>
+					<li>
+						<p><strong>Android Studio:</strong> Import the full project (i.e recipe) into android studio and click on the run button at the top of the ide. Select the device of your choice and you're good to go</p>
+					</li>
+					<li>
+						<p><strong>Physical Device:</strong> Send the apk in <code>/app/app-realease.apk</code> file to your mobile device, find it and click on it. Follow the instructions and you're good to go</p>
+					</li>
+				</ul>
+				<p><strong>On the Login page just tap on the <code>sign in</code> button. This will take you to the dashboard so that you can explore the app</strong></p>
+
+			</div>
+		</div>
+	</body>
+</html>
