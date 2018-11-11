@@ -8,6 +8,3 @@
 /captures
 .externalNativeBuild
 AdFitnessApi/.idea/
-AdFitnessApi/composer.json
-AdFitnessApi/composer.lock
-AdFitnessApi/symfony.lock
