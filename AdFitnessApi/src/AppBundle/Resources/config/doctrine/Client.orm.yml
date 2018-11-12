@@ -1,0 +1,29 @@
+AppBundle\Entity\Client:
+    type: entity
+    table: null
+    repositoryClass: AppBundle\Repository\ClientRepository
+    id:
+        id:
+            type: integer
+            id: true
+            generator:
+                strategy: AUTO
+    manyToOne:
+      user:
+        targetEntity: User
+        inversedBy: Client
+        joinColumn:
+          name: user_id
+          referencedColumnName: id
+    fields:
+        gender:
+            type: string
+            length: 255
+        weight:
+            type: float
+        height:
+            type: float
+        createdAt:
+            type: date
+
+    lifecycleCallbacks: {  }

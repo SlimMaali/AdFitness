@@ -9,8 +9,9 @@
     <string name="our_club">Notre Club</string>
     <string name="join_message">Rejoigner nos cours collectifs en reservant votre place depuis votre smartphone</string>
     <string name="skip">SKIP</string>
-    <string name="email_hint">Adresse Email</string>
-    <string name="password_hint">Mot de passe</string>
+    <string name="username_hint"> Username</string>
+    <string name="email_hint"> Adresse Email</string>
+    <string name="password_hint"> Mot de passe</string>
     <string name="sign_in_with_facebook">Connectez-vous avec Facebook</string>
     <string name="sign_in_with_twitter">Connectez-vous avec Twitter</string>
     <string name="forgot_password">Mot de passe oublié?</string>

@@ -4,3 +4,33 @@ api_register:
 api_login:
     path: /login/{username}/{password}
     defaults: {_controller: AppBundle:User:login}
+api_room_create:
+    path: /room/{name}/{description}
+    defaults: {_controller: AppBundle:Room:create}
+api_room_update:
+    path: /room/{id}/{name}/{description}
+    defaults: {_controller: AppBundle:Room:update}
+api_room_read:
+    path: /room/{id}
+    defaults: {_controller: AppBundle:Room:read}
+api_room_readall:
+    path: /room
+    defaults: {_controller: AppBundle:Room:readAll}
+api_room_delete:
+    path: /room/delete/{id}
+    defaults: {_controller: AppBundle:Room:delete}
+api_session_create:
+    path:     /session/{name}/{date}/{duration}/{location}/{currentNb}/{maxNb}
+    defaults: { _controller: AppBundle:Session:create }
+api_session_update:
+    path:     /session/{id}/{name}/{date}/{duration}/{location}/{currentNb}/{maxNb}
+    defaults: { _controller: AppBundle:Session:update }
+api_session_read:
+    path:     /session/{id}
+    defaults: { _controller: AppBundle:Session:read }
+api_session_read_all:
+    path:     /session
+    defaults: { _controller: AppBundle:Session:readAll }
+api_session_delete:
+    path:     /session/delete/{id}
+    defaults: { _controller: AppBundle:Session:delete }
