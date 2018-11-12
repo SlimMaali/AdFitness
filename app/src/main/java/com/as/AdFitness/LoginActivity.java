@@ -3,20 +3,27 @@ package com.as.AdFitness;
 import android.app.ProgressDialog;
 import android.content.Intent;
 import android.os.Bundle;
-import android.os.Message;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.AppCompatEditText;
 import android.support.v7.widget.AppCompatTextView;
 import android.support.v7.widget.LinearLayoutCompat;
 import android.text.TextUtils;
+import android.util.Log;
 import android.util.Patterns;
 import android.view.View;
+import android.widget.Toast;
+
+import org.json.JSONException;
+import org.json.JSONObject;
 
 public class LoginActivity extends AppCompatActivity implements View.OnClickListener {
     private AppCompatEditText emailField, passwordField;
     private LinearLayoutCompat signInButton, facebookButton, twitterButton;
     private AppCompatTextView forgotButton, signUpButton;
     private ProgressDialog pDialog;
+
+    private String TAG = LoginActivity.class.getSimpleName();
+    private static String url = "http://127.0.0.1:8000/Api/login/";
 
 
     @Override
@@ -62,7 +69,7 @@ public class LoginActivity extends AppCompatActivity implements View.OnClickList
             else
             {
                 pDialog = new ProgressDialog(LoginActivity.this);
-                pDialog.setMessage("Wrong Password");
+                pDialog.setMessage("mot de passe erroné touchez n'importe ou");
                 pDialog.setCancelable(true);
                 pDialog.setCanceledOnTouchOutside(true);
                 pDialog.show();
@@ -76,6 +83,56 @@ public class LoginActivity extends AppCompatActivity implements View.OnClickList
         } else if (v.getId() == R.id.signUpButton) {
             startActivity(new Intent(LoginActivity.this, SignUpActivity.class));
         }
+    }
+
+    public int sendloginurl(String email, String password)
+    {
+        int id=0;
+        String strId="";
+        url += email+"/"+password;
+
+        HttpHandler sh = new HttpHandler();
+
+        // Making a request to url and getting response
+        String jsonStr = sh.makeServiceCall(url);
+
+        Log.e(TAG, "Response from url: " + jsonStr);
+
+        if (jsonStr != null) {
+            try {
+                JSONObject c = new JSONObject(jsonStr);
+
+                    if (email == c.getString("email") && password == c.getString("password"))strId = c.getString("id");
+
+
+            } catch (final JSONException e) {
+                Log.e(TAG, "Json parsing error: " + e.getMessage());
+                runOnUiThread(new Runnable() {
+                    @Override
+                    public void run() {
+                        Toast.makeText(getApplicationContext(),
+                                "Json parsing error: " + e.getMessage(),
+                                Toast.LENGTH_LONG)
+                                .show();
+                    }
+                });
+
+            }
+        } else {
+            Log.e(TAG, "Couldn't get json from server.");
+            runOnUiThread(new Runnable() {
+                @Override
+                public void run() {
+                    Toast.makeText(getApplicationContext(),
+                            "Couldn't get json from server. Check LogCat for possible errors!",
+                            Toast.LENGTH_LONG)
+                            .show();
+                }
+            });
+
+        }
+        id = Integer.parseInt(strId);
+        return id;
     }
 
     /**
