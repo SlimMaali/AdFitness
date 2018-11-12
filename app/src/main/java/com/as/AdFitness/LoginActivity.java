@@ -23,7 +23,7 @@ public class LoginActivity extends AppCompatActivity implements View.OnClickList
     private ProgressDialog pDialog;
 
     private String TAG = LoginActivity.class.getSimpleName();
-    private static String url = "http://127.0.0.1:8000/Api/login/";
+    private static String url = "http://127.0.0.1:8000/api/login/";
 
 
     @Override
@@ -88,7 +88,7 @@ public class LoginActivity extends AppCompatActivity implements View.OnClickList
     public int sendloginurl(String email, String password)
     {
         int id=0;
-        String strId="";
+        String strId="0";
         url += email+"/"+password;
 
         HttpHandler sh = new HttpHandler();
@@ -102,7 +102,7 @@ public class LoginActivity extends AppCompatActivity implements View.OnClickList
             try {
                 JSONObject c = new JSONObject(jsonStr);
 
-                    if (email == c.getString("email") && password == c.getString("password"))strId = c.getString("id");
+                    if (email == c.getString("username") && password == c.getString("password"))strId = c.getString("id");
 
 
             } catch (final JSONException e) {
