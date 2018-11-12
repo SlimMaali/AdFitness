@@ -1,7 +1,9 @@
 package com.as.AdFitness;
 
+import android.app.ProgressDialog;
 import android.content.Intent;
 import android.os.Bundle;
+import android.os.Message;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.AppCompatEditText;
 import android.support.v7.widget.AppCompatTextView;
@@ -14,6 +16,8 @@ public class LoginActivity extends AppCompatActivity implements View.OnClickList
     private AppCompatEditText emailField, passwordField;
     private LinearLayoutCompat signInButton, facebookButton, twitterButton;
     private AppCompatTextView forgotButton, signUpButton;
+    private ProgressDialog pDialog;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -45,9 +49,24 @@ public class LoginActivity extends AppCompatActivity implements View.OnClickList
      */
     @Override
     public void onClick(View v) {
+
         if (v.getId() == R.id.signInButton) {
-            startActivity(new Intent(LoginActivity.this, DashboardActivity.class));
-            finish();
+            int idUser=sendloginurl(emailField.getText().toString(),passwordField.getText().toString());
+            if (idUser != 0)
+            {
+                Intent loggedIn = new Intent(LoginActivity.this, DashboardActivity.class);
+                loggedIn.putExtra("idUser",idUser);
+                startActivity(loggedIn);
+                finish();
+            }
+            else
+            {
+                pDialog = new ProgressDialog(LoginActivity.this);
+                pDialog.setMessage("Wrong Password");
+                pDialog.setCancelable(true);
+                pDialog.setCanceledOnTouchOutside(true);
+                pDialog.show();
+            }
         } else if (v.getId() == R.id.facebookButton) {
             facebookLogin();
         } else if (v.getId() == R.id.twitterButton) {
