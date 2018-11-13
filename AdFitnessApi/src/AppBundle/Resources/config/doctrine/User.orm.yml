@@ -26,7 +26,8 @@ AppBundle\Entity\User:
             type: string
             length: 255
         birthday:
-            type: date
+            type: string
+            length: 10
         phone:
             type: string
             length: 255

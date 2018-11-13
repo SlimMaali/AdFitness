@@ -13,8 +13,22 @@ import android.util.Patterns;
 import android.view.View;
 import android.widget.Toast;
 
+import com.as.AdFitness.pojo.User;
+import com.as.AdFitness.utility.UserService;
+
 import org.json.JSONException;
 import org.json.JSONObject;
+
+import io.reactivex.Single;
+import io.reactivex.annotations.NonNull;
+import io.reactivex.annotations.Nullable;
+import retrofit2.Call;
+import retrofit2.Callback;
+import retrofit2.Response;
+import retrofit2.Retrofit;
+import retrofit2.converter.gson.GsonConverterFactory;
+import retrofit2.http.Path;
+
 
 public class LoginActivity extends AppCompatActivity implements View.OnClickListener {
     private AppCompatEditText emailField, passwordField;
@@ -22,8 +36,6 @@ public class LoginActivity extends AppCompatActivity implements View.OnClickList
     private AppCompatTextView forgotButton, signUpButton;
     private ProgressDialog pDialog;
 
-    private String TAG = LoginActivity.class.getSimpleName();
-    private static String url = "http://127.0.0.1:8000/api/login/";
 
 
     @Override
@@ -58,22 +70,35 @@ public class LoginActivity extends AppCompatActivity implements View.OnClickList
     public void onClick(View v) {
 
         if (v.getId() == R.id.signInButton) {
-            int idUser=sendloginurl(emailField.getText().toString(),passwordField.getText().toString());
-            if (idUser != 0)
-            {
-                Intent loggedIn = new Intent(LoginActivity.this, DashboardActivity.class);
-                loggedIn.putExtra("idUser",idUser);
-                startActivity(loggedIn);
-                finish();
-            }
-            else
-            {
-                pDialog = new ProgressDialog(LoginActivity.this);
-                pDialog.setMessage("mot de passe erroné touchez n'importe ou");
-                pDialog.setCancelable(true);
-                pDialog.setCanceledOnTouchOutside(true);
-                pDialog.show();
-            }
+
+            Retrofit retrofit = new Retrofit.Builder()
+                    .baseUrl("http://10.0.2.2:8000/api/login/")
+                    .addConverterFactory(GsonConverterFactory.create())
+                    .build();
+            UserService userService = retrofit.create(UserService.class);
+            Call<User> call = userService.logUser(emailField.getText().toString(),passwordField.getText().toString());
+            call.enqueue(new Callback<User>() {
+                @Override
+                public void onResponse(Call<User> call, Response<User> response) {
+                    User u = response.body();
+                    Intent loggedIn = new Intent(LoginActivity.this, DashboardActivity.class);
+                    loggedIn.putExtra("user",u);
+                    startActivity(loggedIn);
+                    finish();
+                }
+
+                @Override
+                public void onFailure(Call<User> call, Throwable t) {
+                    Log.d("Anas", "onFailure ");
+                    Log.e("Anas", t.toString());
+                    pDialog = new ProgressDialog(LoginActivity.this);
+                    pDialog.setMessage("Mot de passe erroné touchez n'importe ou");
+                    pDialog.setCancelable(true);
+                    pDialog.setCanceledOnTouchOutside(true);
+                    pDialog.show();
+                }
+            });
+
         } else if (v.getId() == R.id.facebookButton) {
             facebookLogin();
         } else if (v.getId() == R.id.twitterButton) {
@@ -85,55 +110,7 @@ public class LoginActivity extends AppCompatActivity implements View.OnClickList
         }
     }
 
-    public int sendloginurl(String email, String password)
-    {
-        int id=0;
-        String strId="0";
-        url += email+"/"+password;
 
-        HttpHandler sh = new HttpHandler();
-
-        // Making a request to url and getting response
-        String jsonStr = sh.makeServiceCall(url);
-
-        Log.e(TAG, "Response from url: " + jsonStr);
-
-        if (jsonStr != null) {
-            try {
-                JSONObject c = new JSONObject(jsonStr);
-
-                    if (email == c.getString("username") && password == c.getString("password"))strId = c.getString("id");
-
-
-            } catch (final JSONException e) {
-                Log.e(TAG, "Json parsing error: " + e.getMessage());
-                runOnUiThread(new Runnable() {
-                    @Override
-                    public void run() {
-                        Toast.makeText(getApplicationContext(),
-                                "Json parsing error: " + e.getMessage(),
-                                Toast.LENGTH_LONG)
-                                .show();
-                    }
-                });
-
-            }
-        } else {
-            Log.e(TAG, "Couldn't get json from server.");
-            runOnUiThread(new Runnable() {
-                @Override
-                public void run() {
-                    Toast.makeText(getApplicationContext(),
-                            "Couldn't get json from server. Check LogCat for possible errors!",
-                            Toast.LENGTH_LONG)
-                            .show();
-                }
-            });
-
-        }
-        id = Integer.parseInt(strId);
-        return id;
-    }
 
     /**
      * This method helps to validate user input before submitting it

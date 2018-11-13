@@ -38,7 +38,7 @@ class User
     private $lastName;
 
     /**
-     * @var \DateTime
+     * @var string
      */
     private $birthday;
 
@@ -184,28 +184,23 @@ class User
     }
 
     /**
-     * Set birthday
-     *
-     * @param \DateTime $birthday
-     *
-     * @return User
-     */
-    public function setBirthday($birthday)
-    {
-        $this->birthday = $birthday;
-
-        return $this;
-    }
-
-    /**
-     * Get birthday
-     *
-     * @return \DateTime
+     * @return string
      */
     public function getBirthday()
     {
         return $this->birthday;
     }
+
+    /**
+     * @param string $birthday
+     *
+     */
+    public function setBirthday($birthday)
+    {
+        $this->birthday = $birthday;
+    }
+
+
 
     /**
      * Set phone

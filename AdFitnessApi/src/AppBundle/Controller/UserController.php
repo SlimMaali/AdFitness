@@ -18,7 +18,7 @@ class UserController extends Controller
         $user->setUsername($request->get('username'));
         $user->setPassword($request->get('password'));
         $user->setEmail($request->get('email'));
-        $user->setBirthday(new \DateTime($request->get('birthday')));
+        $user->setBirthday($request->get('birthday'));
         $user->setRole($request->get('role'));
         $user->setFirstName($request->get('firstName'));
         $user->setLastName($request->get('lastName'));
@@ -34,8 +34,23 @@ class UserController extends Controller
         $user=$this->getDoctrine()->getManager()
             ->getRepository('AppBundle:User')->findBy(array('username'=>$request->get('username'),'password'=>$request->get('password')));
         $serializer=new Serializer([new ObjectNormalizer()]);
+        $formated=$serializer->normalize($user[0]);
+        return new JsonResponse($formated);
+    }
+    public function readAction(Request $request)
+    {
+        $user=$this->getDoctrine()->getManager()
+            ->getRepository('AppBundle:User')->find($request->get('id'));
+        $serializer=new Serializer([new ObjectNormalizer()]);
         $formated=$serializer->normalize($user);
         return new JsonResponse($formated);
     }
-
+    public function readAllAction(Request $request)
+    {
+        $user=$this->getDoctrine()->getManager()
+            ->getRepository('AppBundle:User')->findAll();
+        $serializer=new Serializer([new ObjectNormalizer()]);
+        $formated=$serializer->normalize($user);
+        return new JsonResponse($formated);
+    }
 }

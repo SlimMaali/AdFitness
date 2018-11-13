@@ -4,6 +4,12 @@ api_register:
 api_login:
     path: /login/{username}/{password}
     defaults: {_controller: AppBundle:User:login}
+api_user_read:
+    path: /user/{id}
+    defaults: {_controller: AppBundle:User:read}
+api_user_readall:
+    path: /user
+    defaults: {_controller: AppBundle:User:readAll}
 api_room_create:
     path: /room/{name}/{description}
     defaults: {_controller: AppBundle:Room:create}

@@ -2,6 +2,8 @@ package com.as.AdFitness;
 
 import android.util.Log;
 
+import android.util.Log;
+
 import java.io.BufferedInputStream;
 import java.io.BufferedReader;
 import java.io.IOException;
@@ -13,9 +15,9 @@ import java.net.ProtocolException;
 import java.net.URL;
 
 /**
- * Created by Ravi Tamada on 01/09/16.
- * www.androidhive.info
+ * Created by sijangurung on 21/04/2017.
  */
+
 public class HttpHandler {
 
     private static final String TAG = HttpHandler.class.getSimpleName();
@@ -29,9 +31,15 @@ public class HttpHandler {
             URL url = new URL(reqUrl);
             HttpURLConnection conn = (HttpURLConnection) url.openConnection();
             conn.setRequestMethod("GET");
+            conn.getErrorStream();
             // read the response
+            Log.e(TAG, "getErrorStream : : " +conn.getErrorStream().toString());
+            Log.e(TAG, "getInputStream : : " +conn.getInputStream().toString());
+
             InputStream in = new BufferedInputStream(conn.getInputStream());
             response = convertStreamToString(in);
+            Log.e(TAG, "response : : " +response);
+
         } catch (MalformedURLException e) {
             Log.e(TAG, "MalformedURLException: " + e.getMessage());
         } catch (ProtocolException e) {
@@ -62,6 +70,7 @@ public class HttpHandler {
                 e.printStackTrace();
             }
         }
+
         return sb.toString();
     }
 }

@@ -19,6 +19,7 @@ import android.view.Menu;
 import android.view.MenuInflater;
 import android.view.MenuItem;
 import android.view.View;
+import android.widget.TextView;
 
 import com.as.AdFitness.extra.ExtraOneFragment;
 import com.as.AdFitness.extra.ExtraThreeFragment;
@@ -27,6 +28,7 @@ import com.as.AdFitness.fragments.ExploreFragment;
 import com.as.AdFitness.fragments.HomeFragment;
 import com.as.AdFitness.fragments.MyRecipeFragment;
 import com.as.AdFitness.fragments.ShopFragment;
+import com.as.AdFitness.pojo.User;
 
 public class DashboardActivity extends AppCompatActivity implements NavigationView.OnNavigationItemSelectedListener {
     private DrawerLayout drawerLayout;
@@ -77,6 +79,10 @@ public class DashboardActivity extends AppCompatActivity implements NavigationVi
         fragmentTransaction.add(R.id.container, homeFragment);
         fragmentTransaction.addToBackStack(null);
         fragmentTransaction.commit();
+
+        User loggedUser = (User)getIntent().getSerializableExtra("user");
+        TextView tv = (TextView) navigationView.getHeaderView(0).findViewById(R.id.tvName);
+        tv.setText(loggedUser.getLastName()+" "+loggedUser.getFirstName());
 
     }
 
@@ -168,7 +174,7 @@ public class DashboardActivity extends AppCompatActivity implements NavigationVi
             fragment = new ShopFragment();
         } else if (id == R.id.action_extra_1) {
             title = "Extra One";
-           fragment = new ExtraOneFragment();
+            fragment = new ExtraOneFragment();
         } else if (id == R.id.action_extra_2) {
             title = "Extra Two";
             fragment = new ExtraTwoFragment();
