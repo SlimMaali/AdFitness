@@ -29,6 +29,22 @@ class UserController extends Controller
         $formated = $serializer->normalize($user);
         return new JsonResponse($formated);
     }
+    public function usernameExistAction(Request $request)
+    {
+        $user=$this->getDoctrine()->getManager()
+            ->getRepository('AppBundle:User')->findOneBy(array('username'=>$request->get('username')));
+        if(is_null($user))
+            return new JsonResponse("false");
+        else return new JsonResponse("true");
+    }
+    public function emailExistAction(Request $request)
+    {
+        $user=$this->getDoctrine()->getManager()
+            ->getRepository('AppBundle:User')->findOneBy(array('email'=>$request->get('email')));
+        if(is_null($user))
+            return new JsonResponse("false");
+        else return new JsonResponse("true");
+    }
     public function loginAction(Request $request)
     {
         $user=$this->getDoctrine()->getManager()

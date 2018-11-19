@@ -1,7 +1,9 @@
 package com.as.AdFitness;
 
+import android.app.Activity;
 import android.app.SearchManager;
 import android.content.Context;
+import android.content.Intent;
 import android.content.res.Configuration;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
@@ -181,6 +183,12 @@ public class DashboardActivity extends AppCompatActivity implements NavigationVi
         } else if (id == R.id.action_extra_3) {
             title = "Extra Three";
             fragment = new ExtraThreeFragment();
+        }else if (id == R.id.action_logout) {
+            title = "Déconnexion";
+            Intent loginscreen = new Intent(this,LoginActivity.class);
+            loginscreen.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
+            startActivity(loginscreen);
+            this.finish();
         }
 
         if (fragment != null) {

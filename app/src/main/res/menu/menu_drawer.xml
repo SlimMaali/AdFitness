@@ -48,6 +48,10 @@
                     android:id="@+id/action_extra_3"
                     android:icon="@drawable/settings"
                     android:title="@string/extra_3" />
+                <item
+                    android:id="@+id/action_logout"
+                    android:icon="@drawable/exit"
+                    android:title="@string/logout" />
 
             </group>
         </menu>

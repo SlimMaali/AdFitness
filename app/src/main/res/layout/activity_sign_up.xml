@@ -33,18 +33,6 @@
             android:layout_marginBottom="50dp"
             android:layout_gravity="center"/>
 
-        <android.support.v7.widget.AppCompatEditText
-            android:id="@+id/username"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:padding="15dp"
-            android:hint=" Username"
-            android:drawableLeft="@drawable/user"
-
-            android:inputType="textCapSentences"
-            android:background="@drawable/auth_editview_upper" />
-
-
         <android.support.v7.widget.LinearLayoutCompat
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
@@ -55,21 +43,38 @@
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
-                android:background="@drawable/edittext_field_middle"
-                android:hint=" Nom"
+                android:background="@drawable/auth_editview_upper"
+                android:hint="@string/firstName_hint"
                 android:inputType="textPersonName"
                 android:padding="15dp" />
 
             <android.support.v7.widget.AppCompatEditText
-                android:id="@+id/LastName"
+                android:id="@+id/lastName"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
-                android:background="@drawable/edittext_field_middle"
-                android:hint=" Prénom"
+                android:background="@drawable/auth_editview_upper"
+                android:hint="@string/lastName_hint"
                 android:inputType="textPersonName"
                 android:padding="15dp" />
         </android.support.v7.widget.LinearLayoutCompat>
+
+        <android.support.v7.widget.AppCompatEditText
+            android:id="@+id/username"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:padding="15dp"
+            android:hint="@string/username_hint"
+            android:drawableLeft="@drawable/user"
+            android:drawableStart="@drawable/user"
+            android:drawablePadding="10dp"
+
+
+            android:inputType="textCapSentences"
+            android:background="@drawable/edittext_field_middle" />
+
+
+
 
         <android.support.v7.widget.AppCompatEditText
             android:id="@+id/emailAddress"
@@ -77,6 +82,9 @@
             android:layout_height="wrap_content"
             android:background="@color/white"
             android:drawableLeft="@drawable/email"
+            android:drawableStart="@drawable/email"
+            android:drawablePadding="10dp"
+
             android:hint="@string/email_hint"
             android:inputType="textEmailAddress"
             android:padding="15dp" />
@@ -88,6 +96,9 @@
             android:padding="15dp"
             android:hint="@string/password_hint"
             android:drawableLeft="@drawable/password"
+            android:drawableStart="@drawable/password"
+            android:drawablePadding="10dp"
+
             android:inputType="textPassword"
             android:background="@drawable/edittext_field_middle"/>
 
@@ -97,7 +108,9 @@
             android:layout_height="wrap_content"
             android:background="@drawable/edittext_field_middle"
             android:drawableLeft="@drawable/phone"
-            android:hint="Phone Number"
+            android:drawableStart="@drawable/phone"
+            android:drawablePadding="10dp"
+            android:hint="@string/phone_hint"
             android:inputType="phone"
             android:padding="15dp" />
 
@@ -106,14 +119,17 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:background="@drawable/auth_editview_lower"
-            android:hint="Date de naissance"
+            android:drawableLeft="@drawable/calendar"
+            android:drawableStart="@drawable/calendar"
+            android:drawablePadding="10dp"
+            android:hint="@string/birthday_hint"
             android:inputType="date"
             android:padding="15dp" />
 
         <!-- Custom Sign In Button -->
 
         <android.support.v7.widget.LinearLayoutCompat
-            android:id="@+id/signInButton"
+            android:id="@+id/signUpBtn"
             android:layout_marginTop="10dp"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"

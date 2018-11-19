@@ -10,6 +10,12 @@ api_user_read:
 api_user_readall:
     path: /user
     defaults: {_controller: AppBundle:User:readAll}
+api_username_exist:
+    path: /usernameExist/{username}
+    defaults: {_controller: AppBundle:User:usernameExist}
+api_email_exist:
+    path: /emailExist/{email}
+    defaults: {_controller: AppBundle:User:emailExist}
 api_room_create:
     path: /room/{name}/{description}
     defaults: {_controller: AppBundle:Room:create}

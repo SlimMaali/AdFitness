@@ -14,6 +14,7 @@ import android.view.View;
 import android.widget.Toast;
 
 import com.as.AdFitness.pojo.User;
+import com.as.AdFitness.utility.Api;
 import com.as.AdFitness.utility.UserService;
 
 import org.json.JSONException;
@@ -31,7 +32,7 @@ import retrofit2.http.Path;
 
 
 public class LoginActivity extends AppCompatActivity implements View.OnClickListener {
-    private AppCompatEditText emailField, passwordField;
+    private AppCompatEditText usernameField, passwordField;
     private LinearLayoutCompat signInButton, facebookButton, twitterButton;
     private AppCompatTextView forgotButton, signUpButton;
     private ProgressDialog pDialog;
@@ -44,7 +45,7 @@ public class LoginActivity extends AppCompatActivity implements View.OnClickList
         setContentView(R.layout.activity_login);
 
         //Initialize view for receiving user data and interaction
-        emailField = (AppCompatEditText) findViewById(R.id.emailAddress);
+        usernameField = (AppCompatEditText) findViewById(R.id.username);
         passwordField = (AppCompatEditText) findViewById(R.id.password);
         signInButton = (LinearLayoutCompat) findViewById(R.id.signInButton);
         facebookButton = (LinearLayoutCompat) findViewById(R.id.facebookButton);
@@ -69,36 +70,10 @@ public class LoginActivity extends AppCompatActivity implements View.OnClickList
     @Override
     public void onClick(View v) {
 
+
         if (v.getId() == R.id.signInButton) {
-
-            Retrofit retrofit = new Retrofit.Builder()
-                    .baseUrl("http://10.0.2.2:8000/api/login/")
-                    .addConverterFactory(GsonConverterFactory.create())
-                    .build();
-            UserService userService = retrofit.create(UserService.class);
-            Call<User> call = userService.logUser(emailField.getText().toString(),passwordField.getText().toString());
-            call.enqueue(new Callback<User>() {
-                @Override
-                public void onResponse(Call<User> call, Response<User> response) {
-                    User u = response.body();
-                    Intent loggedIn = new Intent(LoginActivity.this, DashboardActivity.class);
-                    loggedIn.putExtra("user",u);
-                    startActivity(loggedIn);
-                    finish();
-                }
-
-                @Override
-                public void onFailure(Call<User> call, Throwable t) {
-                    Log.d("Anas", "onFailure ");
-                    Log.e("Anas", t.toString());
-                    pDialog = new ProgressDialog(LoginActivity.this);
-                    pDialog.setMessage("Mot de passe erroné touchez n'importe ou");
-                    pDialog.setCancelable(true);
-                    pDialog.setCanceledOnTouchOutside(true);
-                    pDialog.show();
-                }
-            });
-
+            if(validateUserInput())
+                defaultLogin();
         } else if (v.getId() == R.id.facebookButton) {
             facebookLogin();
         } else if (v.getId() == R.id.twitterButton) {
@@ -115,15 +90,15 @@ public class LoginActivity extends AppCompatActivity implements View.OnClickList
     /**
      * This method helps to validate user input before submitting it
      */
-    private void validateUserInput() {
-        String email = emailField.getText().toString();
+    private boolean validateUserInput() {
+        String username = usernameField.getText().toString();
         String password = passwordField.getText().toString();
         boolean cancel = false;//
         View view = null;
 
-        if (!Patterns.EMAIL_ADDRESS.matcher(email).matches()) {
-            emailField.setError(getResources().getString(R.string.invalid_email));
-            view = emailField;
+        if (TextUtils.isEmpty(username)|| username.length() < 4 ) {
+            usernameField.setError(getResources().getString(R.string.invalid_usernameOrEmail));
+            view = usernameField;
             cancel = true;
         } else if (TextUtils.isEmpty(password) || password.length() < 6) {
             passwordField.setError(getResources().getString(R.string.password_error));
@@ -133,11 +108,43 @@ public class LoginActivity extends AppCompatActivity implements View.OnClickList
 
         if (cancel) {
             view.requestFocus();
-            return;
-        } else {
-            //Send email and password to server to validate
-        }
+            return false;
+        } else return true;
 
+
+    }
+
+
+    /**
+     * This method is called and all facebook login job is done within this method
+     */
+
+    private void defaultLogin()
+    {
+
+        UserService userService = Api.getInstance().getUserService();
+        Call<User> call = userService.logUser(usernameField.getText().toString(),passwordField.getText().toString());
+        call.enqueue(new Callback<User>() {
+            @Override
+            public void onResponse(Call<User> call, Response<User> response) {
+                User u = response.body();
+                Intent loggedIn = new Intent(LoginActivity.this, DashboardActivity.class);
+                loggedIn.putExtra("user",u);
+                startActivity(loggedIn);
+                finish();
+            }
+
+            @Override
+            public void onFailure(Call<User> call, Throwable t) {
+                Log.d("Anas", "onFailure ");
+                Log.e("Anas", t.toString());
+                pDialog = new ProgressDialog(LoginActivity.this);
+                pDialog.setMessage("Mot de passe erroné touchez n'importe ou");
+                pDialog.setCancelable(true);
+                pDialog.setCanceledOnTouchOutside(true);
+                pDialog.show();
+            }
+        });
     }
 
     /**
