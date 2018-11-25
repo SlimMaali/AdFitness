@@ -16,4 +16,6 @@ AppBundle\Entity\Room:
         description:
             type: string
             length: 255
+        image:
+            type: integer
     lifecycleCallbacks: {  }

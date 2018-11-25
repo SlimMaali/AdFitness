@@ -21,6 +21,10 @@ class Room
      * @var string
      */
     private $description;
+    /**
+     * @var int
+     */
+    private $image;
 
 
     /**
@@ -80,5 +84,23 @@ class Room
     {
         return $this->description;
     }
+
+    /**
+     * @return int
+     */
+    public function getImage()
+    {
+        return $this->image;
+    }
+
+    /**
+     * @param int $image
+     */
+    public function setImage($image)
+    {
+        $this->image = $image;
+    }
+
+
 }
 

@@ -17,10 +17,10 @@ api_email_exist:
     path: /emailExist/{email}
     defaults: {_controller: AppBundle:User:emailExist}
 api_room_create:
-    path: /room/{name}/{description}
+    path: /room/{name}/{description}/{image}
     defaults: {_controller: AppBundle:Room:create}
 api_room_update:
-    path: /room/{id}/{name}/{description}
+    path: /room/{id}/{name}/{description}/{image}
     defaults: {_controller: AppBundle:Room:update}
 api_room_read:
     path: /room/{id}

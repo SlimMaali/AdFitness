@@ -18,6 +18,7 @@ class RoomController extends Controller
         $em = $this->getDoctrine()->getManager();
         $room->setName($request->get('name'));
         $room->setDescription($request->get('description'));
+        $room->setImage($request->get('image'));
         $em->persist($room);
         $em->flush();
         $serializer = new Serializer([new ObjectNormalizer()]);
@@ -30,6 +31,7 @@ class RoomController extends Controller
         $room= $em->getRepository('AppBundle:Room')->find($request->get('id'));
         $room->setName($request->get('name'));
         $room->setDescription($request->get('description'));
+        $room->setImage($request->get('image'));
         $em->persist($room);
         $em->flush();
         $serializer = new Serializer([new ObjectNormalizer()]);
