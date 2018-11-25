@@ -195,6 +195,9 @@ public class SignUpActivity extends AppCompatActivity implements View.OnClickLis
     /**
      * This method helps to validate user input before submitting it
      */
+
+
+
     private boolean validateUserInput() {
         String username = usernameField.getText().toString();
         String email = emailField.getText().toString();
@@ -206,8 +209,7 @@ public class SignUpActivity extends AppCompatActivity implements View.OnClickLis
         boolean cancel = false;//
         View view = null;
         //Testing username and email in database
-        usernameExist(username);
-        emailExist(email);
+
          if (TextUtils.isEmpty(firstName)) {
             firstNameField.setError(getResources().getString(R.string.invalid_firstName));
             view = firstNameField;
@@ -241,10 +243,22 @@ public class SignUpActivity extends AppCompatActivity implements View.OnClickLis
             cancel = true;
 
         }
+        else
+         {
+             usernameExist(username);
+             emailExist(email);
+             //Cancel Submit
+         }
+
         if (cancel) {
             view.requestFocus();
             return false;
-        } else return true;
+        }    else return true;
+
+
+
+
+
 
     }
 

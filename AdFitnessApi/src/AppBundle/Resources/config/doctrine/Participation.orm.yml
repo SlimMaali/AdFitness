@@ -1,0 +1,25 @@
+AppBundle\Entity\Participation:
+    type: entity
+    table: null
+    repositoryClass: AppBundle\Repository\ParticipationRepository
+    id:
+        id:
+            type: integer
+            id: true
+            generator:
+                strategy: AUTO
+    fields:
+    manyToOne:
+        user:
+            targetEntity: User
+            inversedBy: Participation
+            joinColumn:
+                name: user_id
+                referencedColumnName: id
+        session:
+            targetEntity: Session
+            inversedBy: Participation
+            joinColumn:
+                name: session_id
+                referencedColumnName: id
+    lifecycleCallbacks: {  }
