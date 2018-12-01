@@ -1,6 +1,8 @@
 package com.as.AdFitness;
 
+import android.app.ProgressDialog;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
@@ -11,17 +13,47 @@ import android.view.View;
 
 import com.as.AdFitness.fragments.JoinInfographicFragment;
 import com.as.AdFitness.fragments.WelcomeInfographicFragment;
+import com.as.AdFitness.pojo.User;
+import com.as.AdFitness.utility.Api;
+import com.as.AdFitness.utility.UserService;
 import com.rd.PageIndicatorView;
 import com.rd.animation.type.AnimationType;
 import com.rd.draw.data.Orientation;
 
+import retrofit2.Call;
+import retrofit2.Callback;
+import retrofit2.Response;
+
 public class SplashScreen extends AppCompatActivity {
 
+    private SharedPreferences sharedPreferences;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
+
+        sharedPreferences = getSharedPreferences("AdFitness",MODE_PRIVATE);
+        if(sharedPreferences.getString("status","false").equals("logged"))
+        {
+            UserService userService = Api.getInstance().getUserService();
+            Call<User> call = userService.getUserData(sharedPreferences.getInt("id",0));
+            call.enqueue(new Callback<User>() {
+                @Override
+                public void onResponse(Call<User> call, Response<User> response) {
+                    User u = response.body();
+                    Intent loggedIn = new Intent(SplashScreen.this, DashboardActivity.class);
+                    loggedIn.putExtra("user",u);
+                    startActivity(loggedIn);
+                    finish();
+                }
+
+                @Override
+                public void onFailure(Call<User> call, Throwable t) {
+                    startActivity(new Intent(SplashScreen.this,LoginActivity.class));
+                }
+            });
+
+        }
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_splash_screen);
-
         initViews();
     }
 

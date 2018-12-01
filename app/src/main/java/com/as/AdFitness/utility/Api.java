@@ -9,6 +9,8 @@ public class Api {
 
     // services
     private UserService userService;
+    private RoomService roomService;
+    private SessionService sessionService;
 
 
     public static Api getInstance() {
@@ -23,6 +25,7 @@ public class Api {
         buildRetrofit();
     }
 
+
     private void buildRetrofit() {
         Retrofit retrofit = new Retrofit.Builder()
                 .baseUrl(BASE_URL)
@@ -31,10 +34,16 @@ public class Api {
 
         // Building  services once
         this.userService = retrofit.create(UserService.class);
+        this.roomService = retrofit.create(RoomService.class);
+        this.sessionService = retrofit.create(SessionService.class);
         //others here
     }
 
     public UserService getUserService() {
         return this.userService;
     }
+    public RoomService getRoomService() { return this.roomService; }
+    public SessionService getSessionService() { return sessionService; }
+
+
 }

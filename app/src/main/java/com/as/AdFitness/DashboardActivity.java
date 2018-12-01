@@ -1,9 +1,9 @@
 package com.as.AdFitness;
 
-import android.app.Activity;
 import android.app.SearchManager;
 import android.content.Context;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.content.res.Configuration;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
@@ -23,12 +23,10 @@ import android.view.MenuItem;
 import android.view.View;
 import android.widget.TextView;
 
-import com.as.AdFitness.extra.ExtraOneFragment;
-import com.as.AdFitness.extra.ExtraThreeFragment;
-import com.as.AdFitness.extra.ExtraTwoFragment;
-import com.as.AdFitness.fragments.ExploreFragment;
+import com.as.AdFitness.fragments.OurClubFragment;
 import com.as.AdFitness.fragments.HomeFragment;
 import com.as.AdFitness.fragments.MyRecipeFragment;
+import com.as.AdFitness.fragments.ScheduleFragment;
 import com.as.AdFitness.fragments.ShopFragment;
 import com.as.AdFitness.pojo.User;
 
@@ -36,7 +34,8 @@ public class DashboardActivity extends AppCompatActivity implements NavigationVi
     private DrawerLayout drawerLayout;
     private ActionBarDrawerToggle drawerToggle;
     private NavigationView navigationView;
-
+    private SharedPreferences sharedPreferences;
+    private SharedPreferences.Editor editor;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -85,6 +84,9 @@ public class DashboardActivity extends AppCompatActivity implements NavigationVi
         User loggedUser = (User)getIntent().getSerializableExtra("user");
         TextView tv = (TextView) navigationView.getHeaderView(0).findViewById(R.id.tvName);
         tv.setText(loggedUser.getLastName()+" "+loggedUser.getFirstName());
+
+        sharedPreferences = getSharedPreferences("AdFitness",MODE_PRIVATE);
+        editor = sharedPreferences.edit();
 
     }
 
@@ -167,24 +169,24 @@ public class DashboardActivity extends AppCompatActivity implements NavigationVi
             fragment = new HomeFragment();
         } else if (id == R.id.action_our_club) {
             title = "Notre Club";
-            fragment = new ExploreFragment();
+            fragment = new OurClubFragment();
+        }else if (id == R.id.action_our_courses) {
+            title = "Nos Cours";
+            fragment = new ScheduleFragment();
         } else if (id == R.id.action_my_courses) {
             title = "Mes Cours";
             fragment = new MyRecipeFragment();
         } else if (id == R.id.action_setting) {
             title = "Settings";
             fragment = new ShopFragment();
-        } else if (id == R.id.action_extra_1) {
-            title = "Extra One";
-            fragment = new ExtraOneFragment();
-        } else if (id == R.id.action_extra_2) {
-            title = "Extra Two";
-            fragment = new ExtraTwoFragment();
-        } else if (id == R.id.action_extra_3) {
-            title = "Extra Three";
-            fragment = new ExtraThreeFragment();
         }else if (id == R.id.action_logout) {
             title = "Déconnexion";
+            editor.remove("id");
+            editor.remove("user");
+            editor.remove("password");
+            editor.remove("status");
+            editor.apply();
+
             Intent loginscreen = new Intent(this,LoginActivity.class);
             loginscreen.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
             startActivity(loginscreen);

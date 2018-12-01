@@ -7,6 +7,7 @@
     <string name="welcome">Bienvenue Sur AdFitness</string>
     <string name="welcome_msg">L\'application AdFitness - gratuite et pour tous.</string>
     <string name="our_club">Notre Club</string>
+    <string name="our_courses">Nos Cours</string>
     <string name="join_message">Rejoigner nos cours collectifs en reservant votre place depuis votre smartphone</string>
     <string name="skip">SKIP</string>
     <string name="username_hint"> Nom d\'utilisateur</string>

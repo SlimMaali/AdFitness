@@ -12,13 +12,13 @@
         <ImageView
             android:layout_width="match_parent"
             android:layout_height="220dp"
-            android:scaleType="centerCrop"
+            android:contentDescription="TODO" android:scaleType="centerCrop"
             android:background="@drawable/recipe_2"/>
 
         <ImageView
             android:layout_width="100dp"
             android:layout_height="100dp"
-            android:src="@drawable/avatar"
+            android:contentDescription="TODO" android:src="@drawable/avatar"
             android:layout_marginTop="-50dp"
             android:layout_gravity="center"/>
 

@@ -3,6 +3,7 @@ package com.as.AdFitness;
 import android.app.DatePickerDialog;
 import android.app.ProgressDialog;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.graphics.Color;
 import android.graphics.drawable.ColorDrawable;
 import android.os.Bundle;
@@ -16,9 +17,13 @@ import android.util.Patterns;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
+import android.widget.CompoundButton;
 import android.widget.DatePicker;
+import android.widget.RadioButton;
 import android.widget.TextView;
+import android.widget.Toast;
 
+import com.as.AdFitness.pojo.DataHolder;
 import com.as.AdFitness.pojo.User;
 import com.as.AdFitness.utility.Api;
 import com.as.AdFitness.utility.UserService;
@@ -36,6 +41,8 @@ public class SignUpActivity extends AppCompatActivity implements View.OnClickLis
     private AppCompatEditText usernameField,passwordField,firstNameField,lastNameField,emailField,birthdayField,phoneField;
     private LinearLayoutCompat signUpButton;
     private ProgressDialog pDialog;
+    private SharedPreferences sharedPreferences;
+    private SharedPreferences.Editor editor;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -82,9 +89,15 @@ public class SignUpActivity extends AppCompatActivity implements View.OnClickLis
         lastNameField   = (AppCompatEditText) findViewById(R.id.lastName);
         phoneField   = (AppCompatEditText) findViewById(R.id.phone);
 
+
         signUpButton = (LinearLayoutCompat) findViewById(R.id.signUpBtn);
         signUpButton.setOnClickListener(this);
         userService = Api.getInstance().getUserService();
+
+
+        sharedPreferences = getSharedPreferences("AdFitness",MODE_PRIVATE);
+        editor = sharedPreferences.edit();
+
 
 
 
@@ -103,7 +116,9 @@ public class SignUpActivity extends AppCompatActivity implements View.OnClickLis
 
         if (v.getId() == R.id.signUpBtn) {
             if(validateUserInput())
-                defaultRegister();
+            {
+                    defaultRegister();
+            }else Toast.makeText(SignUpActivity.this, "Erreur d'inscription,", Toast.LENGTH_LONG).show();
         } /*else if (v.getId() == R.id.facebookButton) {
             facebookLogin();
         } else if (v.getId() == R.id.twitterButton) {
@@ -123,11 +138,19 @@ public class SignUpActivity extends AppCompatActivity implements View.OnClickLis
             @Override
             public void onResponse(Call<User> call, Response<User> response) {
                 User u = response.body();
+                editor.putInt("id",u.getId());
+                editor.putString("user",u.getUsername());
+                editor.putString("password",u.getPassword());
+                editor.putString("status","logged");
+                editor.apply();
+
                 Intent loggedIn = new Intent(SignUpActivity.this, DashboardActivity.class);
                 loggedIn.putExtra("user",u);
                 startActivity(loggedIn);
                 finish();
+
             }
+
 
             @Override
             public void onFailure(Call<User> call, Throwable t) {
@@ -156,6 +179,8 @@ public class SignUpActivity extends AppCompatActivity implements View.OnClickLis
                     {
                         usernameField.setError(getResources().getString(R.string.username_already_exist));
                         usernameField.requestFocus();
+                        Toast.makeText(SignUpActivity.this, "Please Choose another username", Toast.LENGTH_LONG).show();
+                        usernameField.setText("");
                     }
                 }
 
@@ -165,6 +190,7 @@ public class SignUpActivity extends AppCompatActivity implements View.OnClickLis
 
             }
         });
+
 
     }
     /**
@@ -182,6 +208,8 @@ public class SignUpActivity extends AppCompatActivity implements View.OnClickLis
                     {
                         emailField.setError(getResources().getString(R.string.email_already_exist));
                         emailField.requestFocus();
+                        Toast.makeText(SignUpActivity.this, "Please Choose another Email", Toast.LENGTH_LONG).show();
+                        emailField.setText("");
                     }
                 }
 
@@ -191,12 +219,11 @@ public class SignUpActivity extends AppCompatActivity implements View.OnClickLis
 
             }
         });
+
     }
     /**
      * This method helps to validate user input before submitting it
      */
-
-
 
     private boolean validateUserInput() {
         String username = usernameField.getText().toString();
@@ -210,7 +237,8 @@ public class SignUpActivity extends AppCompatActivity implements View.OnClickLis
         View view = null;
         //Testing username and email in database
 
-         if (TextUtils.isEmpty(firstName)) {
+
+        if (TextUtils.isEmpty(firstName)) {
             firstNameField.setError(getResources().getString(R.string.invalid_firstName));
             view = firstNameField;
             cancel = true;
@@ -223,8 +251,7 @@ public class SignUpActivity extends AppCompatActivity implements View.OnClickLis
             usernameField.setError(getResources().getString(R.string.invalid_username));
             view = usernameField;
             cancel = true;
-        }
-        else if (!Patterns.EMAIL_ADDRESS.matcher(email).matches() ) {
+        }else if (!Patterns.EMAIL_ADDRESS.matcher(email).matches() ) {
             emailField.setError(getResources().getString(R.string.invalid_email));
             view = emailField;
             cancel = true;
@@ -236,29 +263,19 @@ public class SignUpActivity extends AppCompatActivity implements View.OnClickLis
             phoneField.setError(getResources().getString(R.string.invalid_phone));
             view = phoneField;
             cancel = true;
-
         }else if (TextUtils.isEmpty(birthday)) {
             birthdayField.setError(getResources().getString(R.string.invalid_birthday));
             view = birthdayField;
             cancel = true;
-
         }
-        else
-         {
-             usernameExist(username);
-             emailExist(email);
-             //Cancel Submit
-         }
+        usernameExist(username);
+        emailExist(email);
+
 
         if (cancel) {
             view.requestFocus();
             return false;
         }    else return true;
-
-
-
-
-
 
     }
 

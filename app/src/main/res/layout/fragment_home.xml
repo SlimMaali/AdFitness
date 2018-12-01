@@ -23,7 +23,7 @@
                     android:id="@+id/recipeImage"
                     android:layout_width="match_parent"
                     android:layout_height="180dp"
-                    android:scaleType="centerCrop"
+                    android:contentDescription="TODO" android:scaleType="centerCrop"
                     android:src="@drawable/recipe_2"/>
 
                 <android.support.v7.widget.LinearLayoutCompat
@@ -48,9 +48,9 @@
                         <ImageView
                             android:layout_width="10dp"
                             android:layout_height="10dp"
-                            android:layout_marginRight="5dp"
+                            android:layout_marginEnd="5dp" android:layout_marginRight="5dp"
                             android:layout_gravity="center"
-                            android:src="@drawable/clock"/>
+                            android:contentDescription="TODO" android:src="@drawable/clock"/>
 
                         <android.support.v7.widget.AppCompatTextView
                             android:id="@+id/recipeTime"
@@ -66,7 +66,7 @@
                 <android.support.v7.widget.LinearLayoutCompat
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:background="@color/colorPrimaryDark"
+                    android:layout_marginEnd="10dp" android:background="@color/colorPrimaryDark"
                     android:layout_below="@+id/linearLayout"
                     android:layout_alignParentRight="true"
                     android:layout_alignParentEnd="true"
@@ -103,7 +103,7 @@
                 <ImageView
                     android:layout_width="match_parent"
                     android:layout_height="180dp"
-                    android:scaleType="centerCrop"
+                    android:contentDescription="TODO" android:scaleType="centerCrop"
                     android:src="@drawable/recipe_3"/>
 
                 <android.support.v7.widget.LinearLayoutCompat
@@ -127,9 +127,9 @@
                         <ImageView
                             android:layout_width="10dp"
                             android:layout_height="10dp"
-                            android:layout_marginRight="5dp"
+                            android:layout_marginEnd="5dp" android:layout_marginRight="5dp"
                             android:layout_gravity="center"
-                            android:src="@drawable/clock"/>
+                            android:contentDescription="TODO" android:src="@drawable/clock"/>
 
                         <android.support.v7.widget.AppCompatTextView
                             android:layout_width="wrap_content"
@@ -144,7 +144,7 @@
                 <android.support.v7.widget.LinearLayoutCompat
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:background="@color/colorPrimaryDark"
+                    android:layout_marginEnd="10dp" android:background="@color/colorPrimaryDark"
                     android:layout_below="@+id/linearLayout2"
                     android:layout_alignParentRight="true"
                     android:layout_alignParentEnd="true"
@@ -180,7 +180,7 @@
                 <ImageView
                     android:layout_width="match_parent"
                     android:layout_height="180dp"
-                    android:scaleType="centerCrop"
+                    android:contentDescription="TODO" android:scaleType="centerCrop"
                     android:src="@drawable/recipe_1"/>
 
                 <android.support.v7.widget.LinearLayoutCompat
@@ -204,9 +204,9 @@
                         <ImageView
                             android:layout_width="10dp"
                             android:layout_height="10dp"
-                            android:layout_marginRight="5dp"
+                            android:layout_marginEnd="5dp" android:layout_marginRight="5dp"
                             android:layout_gravity="center"
-                            android:src="@drawable/clock"/>
+                            android:contentDescription="TODO" android:src="@drawable/clock"/>
 
                         <android.support.v7.widget.AppCompatTextView
                             android:layout_width="wrap_content"
@@ -221,7 +221,7 @@
                 <android.support.v7.widget.LinearLayoutCompat
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:background="@color/colorPrimaryDark"
+                    android:layout_marginEnd="10dp" android:background="@color/colorPrimaryDark"
                     android:layout_below="@+id/linearLayout3"
                     android:layout_alignParentRight="true"
                     android:layout_alignParentEnd="true"
@@ -257,7 +257,7 @@
                 <ImageView
                     android:layout_width="match_parent"
                     android:layout_height="180dp"
-                    android:scaleType="centerCrop"
+                    android:contentDescription="TODO" android:scaleType="centerCrop"
                     android:src="@drawable/recipe_2"/>
 
                 <android.support.v7.widget.LinearLayoutCompat
@@ -281,9 +281,9 @@
                         <ImageView
                             android:layout_width="10dp"
                             android:layout_height="10dp"
-                            android:layout_marginRight="5dp"
+                            android:layout_marginEnd="5dp" android:layout_marginRight="5dp"
                             android:layout_gravity="center"
-                            android:src="@drawable/clock"/>
+                            android:contentDescription="TODO" android:src="@drawable/clock"/>
 
                         <android.support.v7.widget.AppCompatTextView
                             android:layout_width="wrap_content"
@@ -298,7 +298,7 @@
                 <android.support.v7.widget.LinearLayoutCompat
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:background="@color/colorPrimaryDark"
+                    android:layout_marginEnd="10dp" android:background="@color/colorPrimaryDark"
                     android:layout_below="@+id/linearLayout4"
                     android:layout_alignParentRight="true"
                     android:layout_alignParentEnd="true"

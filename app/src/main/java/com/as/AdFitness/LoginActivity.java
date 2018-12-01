@@ -2,6 +2,7 @@ package com.as.AdFitness;
 
 import android.app.ProgressDialog;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.AppCompatEditText;
@@ -36,7 +37,8 @@ public class LoginActivity extends AppCompatActivity implements View.OnClickList
     private LinearLayoutCompat signInButton, facebookButton, twitterButton;
     private AppCompatTextView forgotButton, signUpButton;
     private ProgressDialog pDialog;
-
+    private SharedPreferences sharedPreferences;
+    private SharedPreferences.Editor editor;
 
 
     @Override
@@ -53,6 +55,10 @@ public class LoginActivity extends AppCompatActivity implements View.OnClickList
 
         forgotButton = (AppCompatTextView) findViewById(R.id.forgotPassword);
         signUpButton = (AppCompatTextView) findViewById(R.id.signUpButton);
+
+        sharedPreferences = getSharedPreferences("AdFitness",MODE_PRIVATE);
+        editor = sharedPreferences.edit();
+
 
         //Register events, such as button pressed
         signInButton.setOnClickListener(this);
@@ -128,6 +134,11 @@ public class LoginActivity extends AppCompatActivity implements View.OnClickList
             @Override
             public void onResponse(Call<User> call, Response<User> response) {
                 User u = response.body();
+                editor.putInt("id",u.getId());
+                editor.putString("user",u.getUsername());
+                editor.putString("password",u.getPassword());
+                editor.putString("status","logged");
+                editor.apply();
                 Intent loggedIn = new Intent(LoginActivity.this, DashboardActivity.class);
                 loggedIn.putExtra("user",u);
                 startActivity(loggedIn);

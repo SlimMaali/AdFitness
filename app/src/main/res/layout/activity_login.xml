@@ -11,7 +11,7 @@
     <ImageView
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:scaleType="centerCrop"
+        android:contentDescription="TODO" android:scaleType="centerCrop"
         android:src="@drawable/authscreen"/>
 
     <!-- Overlay for background image -->
@@ -33,7 +33,7 @@
             android:layout_width="60dp"
             android:layout_height="60dp"
             android:layout_gravity="center"
-            android:src="@drawable/thumb"/>
+            android:contentDescription="TODO" android:src="@drawable/thumb"/>
 
         <!-- App name here -->
         <android.support.v7.widget.AppCompatTextView
@@ -66,7 +66,7 @@
                 android:background="@drawable/auth_editview_upper"
                 android:drawableLeft="@drawable/user"
                 android:drawablePadding="10dp"
-                android:hint="@string/usernameOrEmail_hint"
+                android:drawableStart="@drawable/user" android:hint="@string/usernameOrEmail_hint"
                 android:inputType="text"
                 android:padding="15dp" />
 
@@ -77,7 +77,7 @@
                 android:padding="15dp"
                 android:drawablePadding="10dp"
                 android:drawableLeft="@drawable/password"
-                android:hint="@string/password_hint"
+                android:drawableStart="@drawable/password" android:hint="@string/password_hint"
                 android:inputType="textPassword"
                 android:background="@drawable/auth_editview_lower"/>
 

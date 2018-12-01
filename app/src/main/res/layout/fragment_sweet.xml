@@ -19,7 +19,6 @@
                 android:id="@+id/exploreImages"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
-                android:scaleType="centerCrop"
                 android:src="@drawable/recipe_3"/>
 
             <!-- Used to add black overlay at the top of the image -->

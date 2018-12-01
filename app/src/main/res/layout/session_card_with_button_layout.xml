@@ -1,0 +1,123 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical" android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:padding="5dp"
+    >
+    <android.support.v7.widget.CardView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="6dp">
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <ImageView
+                android:id="@+id/sessionImage"
+                android:layout_width="match_parent"
+                android:layout_height="180dp"
+                android:contentDescription="TODO"  android:scaleType="centerCrop"
+                android:src="@drawable/recipe_3"/>
+            <LinearLayout
+                android:padding="5dp"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignTop="@+id/sessionImage"
+                android:layout_alignEnd="@+id/sessionImage" android:layout_alignRight="@+id/sessionImage">
+
+                <ImageView
+                    android:layout_width="20dp"
+                    android:layout_height="20dp"
+                    android:layout_gravity="center"
+                    android:contentDescription="TODO" android:src="@drawable/workout"/>
+
+                <TextView
+                    android:id="@+id/sessionLike"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textColor="@color/white"
+                    android:layout_gravity="center"
+                    android:layout_marginEnd="10dp" android:layout_marginRight="10dp"
+                    android:text="25"/>
+
+                <ImageView
+                    android:layout_width="20dp"
+                    android:layout_height="20dp"
+                    android:layout_gravity="center"
+                    android:contentDescription="TODO" android:src="@drawable/iconize"/>
+
+                <TextView
+                    android:id="@+id/sessionChat"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:textColor="@color/white"
+                    android:text="234"/>
+
+            </LinearLayout>
+            <android.support.v7.widget.LinearLayoutCompat
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@color/blackOverlay"
+                android:padding="10dp"
+                android:layout_alignBottom="@+id/sessionImage"
+                android:id="@+id/linearLayout">
+
+                <android.support.v7.widget.AppCompatTextView
+                    android:id="@+id/sessionName"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_weight=".7"
+                    android:text="Session Name Here"
+                    android:textColor="@color/white" />
+
+                <android.support.v7.widget.LinearLayoutCompat
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content">
+
+                    <ImageView
+                        android:layout_width="10dp"
+                        android:layout_height="10dp"
+                        android:layout_marginEnd="5dp" android:layout_marginRight="5dp"
+                        android:layout_gravity="center"
+                        android:contentDescription="TODO" android:src="@drawable/clock"/>
+
+                    <android.support.v7.widget.AppCompatTextView
+                        android:id="@+id/sessionTime"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="15h30"
+                        android:textColor="@color/white" />
+
+                </android.support.v7.widget.LinearLayoutCompat>
+
+            </android.support.v7.widget.LinearLayoutCompat>
+
+            <android.support.v7.widget.LinearLayoutCompat
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginEnd="10dp" android:background="@color/colorPrimaryDark"
+                android:layout_above="@+id/linearLayout"
+                android:layout_alignParentRight="true"
+                android:layout_alignParentEnd="true"
+                android:layout_marginRight="10dp"
+                android:layout_marginBottom="20dp">
+
+                <android.support.v7.widget.AppCompatTextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:paddingLeft="15dp"
+                    android:paddingTop="5dp"
+                    android:paddingRight="15dp"
+                    android:paddingBottom="5dp"
+                    android:text="S'inscrire"
+                    android:textColor="@color/white" />
+
+            </android.support.v7.widget.LinearLayoutCompat>
+
+        </RelativeLayout>
+
+    </android.support.v7.widget.CardView>
+
+</LinearLayout>
