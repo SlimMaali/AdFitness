@@ -2,9 +2,11 @@ package com.as.AdFitness.utility;
 
 import android.content.Context;
 import android.support.v7.widget.RecyclerView;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.TextView;
 
@@ -35,17 +37,19 @@ public class SessionAdapter extends RecyclerView.Adapter<SessionAdapter.SessionV
 
     @Override
     public void onBindViewHolder(SessionViewAdapter holder, int position) {
-        Session Session = SessionList.get(position);
-
-        Calendar calendar = GregorianCalendar.getInstance(); // creates a new calendar instance
-        calendar.setTime(Session.getDate());   // assigns calendar to given date
-
+        final Session Session = SessionList.get(position);
 
         holder.sessionName.setText(Session.getName());
-        holder.sessionTime.setText(calendar.get(Calendar.HOUR_OF_DAY));
-        holder.sessionLike.setText(String.valueOf(Session.getCurrentNb()));
-        //holder.sessionChat.setText(String.valueOf(Session.getChat()));
+        holder.sessionTime.setText(Session.getDate().substring(11));
+        holder.sessionCurrentNb.setText(String.valueOf(Session.getCurrentNb()));
+        holder.sessionMaxNb.setText("/ "+String.valueOf(Session.getMaxNb()));
         holder.sessionImage.setImageResource(R.drawable.recipe_3);
+        holder.sessionSubBtn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Log.e("Session",Session.toString());
+            }
+        });
     }
 
     @Override
@@ -57,8 +61,9 @@ public class SessionAdapter extends RecyclerView.Adapter<SessionAdapter.SessionV
         private ImageView sessionImage;
         private TextView sessionName;
         private TextView sessionTime;
-        private TextView sessionLike;
-        private TextView sessionChat;
+        private TextView sessionCurrentNb;
+        private TextView sessionMaxNb;
+        private Button sessionSubBtn;
 
         public SessionViewAdapter(View itemView) {
             super(itemView);
@@ -66,8 +71,9 @@ public class SessionAdapter extends RecyclerView.Adapter<SessionAdapter.SessionV
             sessionImage = (ImageView) itemView.findViewById(R.id.sessionImage);
             sessionName = (TextView) itemView.findViewById(R.id.sessionName);
             sessionTime = (TextView) itemView.findViewById(R.id.sessionTime);
-            sessionLike = (TextView) itemView.findViewById(R.id.sessionLike);
-            sessionChat = (TextView) itemView.findViewById(R.id.sessionChat);
+            sessionCurrentNb = (TextView) itemView.findViewById(R.id.sessionCurrentNb);
+            sessionMaxNb = (TextView) itemView.findViewById(R.id.sessionMaxNb);
+            sessionSubBtn = (Button) itemView.findViewById(R.id.sessionSubBtn);
         }
 
 

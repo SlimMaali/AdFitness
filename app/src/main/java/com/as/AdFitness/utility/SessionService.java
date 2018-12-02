@@ -11,7 +11,6 @@ import retrofit2.http.Path;
 
 public interface SessionService {
 
-
     //Get Room
     @GET("session/{id}")
     Call<Session> getSession(@Path("id") int id);

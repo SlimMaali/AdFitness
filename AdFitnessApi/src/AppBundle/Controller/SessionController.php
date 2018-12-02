@@ -56,6 +56,9 @@ class SessionController extends Controller
     {
         $session=$this->getDoctrine()->getManager()
             ->getRepository('AppBundle:Session')->findAll();
+        foreach ($session as $s){
+                $s->setDate($s->getDate()->format('Y-m-d H:i'));
+        }
         $serializer=new Serializer([new ObjectNormalizer()]);
         $formated=$serializer->normalize($session);
         return new JsonResponse($formated);

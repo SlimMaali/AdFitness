@@ -25,7 +25,7 @@ import android.widget.TextView;
 
 import com.as.AdFitness.fragments.OurClubFragment;
 import com.as.AdFitness.fragments.HomeFragment;
-import com.as.AdFitness.fragments.MyRecipeFragment;
+import com.as.AdFitness.fragments.MyCoursesFragment;
 import com.as.AdFitness.fragments.ScheduleFragment;
 import com.as.AdFitness.fragments.ShopFragment;
 import com.as.AdFitness.pojo.User;
@@ -175,7 +175,7 @@ public class DashboardActivity extends AppCompatActivity implements NavigationVi
             fragment = new ScheduleFragment();
         } else if (id == R.id.action_my_courses) {
             title = "Mes Cours";
-            fragment = new MyRecipeFragment();
+            fragment = new MyCoursesFragment();
         } else if (id == R.id.action_setting) {
             title = "Settings";
             fragment = new ShopFragment();

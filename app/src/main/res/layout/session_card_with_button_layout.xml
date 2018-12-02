@@ -23,37 +23,34 @@
                 android:padding="5dp"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:background="@color/blackOverlay"
                 android:layout_alignTop="@+id/sessionImage"
                 android:layout_alignEnd="@+id/sessionImage" android:layout_alignRight="@+id/sessionImage">
 
+
+
+                <TextView
+                    android:id="@+id/sessionCurrentNb"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:layout_marginEnd="10dp"
+                    android:layout_marginRight="10dp"
+                    android:text="50"
+                    android:textColor="@color/white" />
+
+                <TextView
+                    android:id="@+id/sessionMaxNb"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:text="100"
+                    android:textColor="@color/white" />
                 <ImageView
                     android:layout_width="20dp"
                     android:layout_height="20dp"
                     android:layout_gravity="center"
                     android:contentDescription="TODO" android:src="@drawable/workout"/>
-
-                <TextView
-                    android:id="@+id/sessionLike"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:textColor="@color/white"
-                    android:layout_gravity="center"
-                    android:layout_marginEnd="10dp" android:layout_marginRight="10dp"
-                    android:text="25"/>
-
-                <ImageView
-                    android:layout_width="20dp"
-                    android:layout_height="20dp"
-                    android:layout_gravity="center"
-                    android:contentDescription="TODO" android:src="@drawable/iconize"/>
-
-                <TextView
-                    android:id="@+id/sessionChat"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_gravity="center"
-                    android:textColor="@color/white"
-                    android:text="234"/>
 
             </LinearLayout>
             <android.support.v7.widget.LinearLayoutCompat
@@ -105,6 +102,7 @@
                 android:layout_marginBottom="20dp">
 
                 <android.support.v7.widget.AppCompatTextView
+                    android:id="@+id/sessionSubBtn"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:paddingLeft="15dp"

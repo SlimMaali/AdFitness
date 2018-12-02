@@ -29,8 +29,11 @@ import com.as.AdFitness.utility.RoomService;
 import com.as.AdFitness.utility.SessionAdapter;
 import com.as.AdFitness.utility.SessionService;
 
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Calendar;
+import java.util.Date;
 import java.util.List;
 import java.util.Map;
 import java.util.TreeMap;
@@ -43,14 +46,10 @@ import retrofit2.Response;
  * A simple {@link Fragment} subclass.
  */
 public class ScheduleFragment extends Fragment {
-    private RecyclerView recyclerView;
-    private SessionAdapter adapter;
     private DashboardActivity dashboardActivity;
     private TabLayout tabLayout;
     private ViewPager viewPager;
-    private String[] tabTitle = new String[]{"Lundi", "Mardi", "Mercredi", "Jeudi", "Vendredi", "Samedi", "Dimanche"};
-    private List<Session> sessionsList;
-
+    private String[] tabTitle = new String[]{"Dimanche","Lundi", "Mardi", "Mercredi", "Jeudi", "Vendredi", "Samedi"};
 
     public ScheduleFragment() {
         // Required empty public constructor
@@ -68,8 +67,6 @@ public class ScheduleFragment extends Fragment {
 
         final ExploreSlidePagerAdapter adapter = new ExploreSlidePagerAdapter(dashboardActivity.getSupportFragmentManager());
 
-        Log.d("Outside", "HEelo");
-
         SessionService sessionService = Api.getInstance().getSessionService();
         Call<List<Session>> call = sessionService.getSessions();
         call.enqueue(new Callback<List<Session>>() {
@@ -77,29 +74,37 @@ public class ScheduleFragment extends Fragment {
             public void onResponse(Call<List<Session>> call, Response<List<Session>> response) {
                 List<Session> sessions = response.body();
                 Log.d("TG", "Data successfully downloaded");
-                Map<Integer,List<Session>> sessionMap = new TreeMap<>();
+                Map<Integer,ArrayList<Session>> sessionMap = new TreeMap<>();
                 Calendar c = Calendar.getInstance();
-                int dayOfWeek;
-                for (Session S : sessions) {
-                    c.setTime(S.getDate());
-                    dayOfWeek = c.get(Calendar.DAY_OF_WEEK);
-                    Log.d("dayOfWeek", "dayOfWeek IS : "+dayOfWeek+" For "+S.toString());
+                int dayOfWeek=0;
+                ArrayList<Session> currentList;
+                    for (Session S : sessions) {
+                    try{
+                        Date d=new SimpleDateFormat("yyyy-MM-dd HH:mm").parse(S.getDate());
+                        Log.d("TG", ""+d.toString());
+                        c.setTime(d);
+                        dayOfWeek = c.get(Calendar.DAY_OF_WEEK);
+                        Log.d("dayOfWeek", "dayOfWeek IS : "+dayOfWeek+" For "+S.toString());
+                    }catch (ParseException e ){
+                        Log.e("Exception",e.getMessage());
+                    }
+                    currentList=sessionMap.get(dayOfWeek);
+                    if(currentList==null)
+                        currentList = new ArrayList<>();
+                    currentList.add(S);
+                    Log.e("List is ",currentList.toString());
+                    sessionMap.put(dayOfWeek,currentList);
 
                 }
-              /*  for (int i = 0; i < 7; i++) {
-                    sessionMap.get(i+1);
-                    RoomExploreFragment RF = new RoomExploreFragment();
-
+                for (int i = 0; i < 7; i++) {
+                    ScheduleDayFragment SDF = new ScheduleDayFragment();
                     Bundle b = new Bundle();
-                    b.putInt("Id", f.getId());
-                    b.putString("Title", f.getName());
-                    b.putString("Description", f.getDescription());
-                    b.putString("Image", f.getImage());
-                    RF.setArguments(b);
-                    adapter.addFragment(RF, tabTitle[i]);
+                    b.putParcelableArrayList("session",sessionMap.get(i+1));
+                    SDF.setArguments(b);
+                    adapter.addFragment(SDF, tabTitle[i]);
                     adapter.notifyDataSetChanged();
                 }
-*/
+
 
             }
 
@@ -117,7 +122,6 @@ public class ScheduleFragment extends Fragment {
         return view;
     }
 
-
     @Override
     public void onAttach(Context context) {
         super.onAttach(context);
@@ -127,7 +131,6 @@ public class ScheduleFragment extends Fragment {
     private class ExploreSlidePagerAdapter extends FragmentStatePagerAdapter {
         private final List<Fragment> mFragmentList = new ArrayList<>();
         private final List<String> mFragmentTitleList = new ArrayList<>();
-
         public ExploreSlidePagerAdapter(FragmentManager fm) {
             super(fm);
         }

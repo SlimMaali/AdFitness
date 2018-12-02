@@ -1,12 +1,15 @@
 package com.as.AdFitness.pojo;
 
-public class Room {
+import android.os.Parcel;
+import android.os.Parcelable;
+
+public class Room implements Parcelable {
     private int id;
     private String name;
     private String description;
     private String image;
 
-    public Room() {
+    public Room()  {
     }
 
     public Room(String name, String description, String image) {
@@ -63,4 +66,38 @@ public class Room {
                 ", image=" + image +
                 '}';
     }
+
+    @Override
+    public int describeContents() {
+        return 0;
+    }
+    public Room(Parcel in) {
+        super();
+        readFromParcel(in);
+    }
+    @Override
+    public void writeToParcel(Parcel parcel, int i) {
+        parcel.writeInt(id);
+        parcel.writeString(name);
+        parcel.writeString(description);
+        parcel.writeString(image);
+    }
+
+    public void readFromParcel(Parcel in) {
+        id = in.readInt();
+        name = in.readString();
+        description = in.readString();
+        image = in.readString();
+    }
+    public static final Parcelable.Creator<Session> CREATOR = new Parcelable.Creator<Session>() {
+        public Session createFromParcel(Parcel in) {
+            return new Session(in);
+        }
+
+        public Session[] newArray(int size) {
+
+            return new Session[size];
+        }
+
+    };
 }

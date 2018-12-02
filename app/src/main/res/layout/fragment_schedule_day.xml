@@ -6,7 +6,7 @@
     tools:context=".fragments.ScheduleDayFragment">
 
     <android.support.v7.widget.RecyclerView
-        android:id="@+id/recycleView"
+        android:id="@+id/recycleView_schedule"
         android:padding="6dp"
         android:layout_width="match_parent"
         android:layout_height="wrap_content">

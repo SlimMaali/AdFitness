@@ -8,30 +8,30 @@ import java.util.Date;
 public class Session implements Parcelable {
     private int id;
     private String name;
-    private Date date;
+    private String date;
     private String duration;
-    private int idRoom;
+    private Room room;
     private int currentNb;
     private int maxNb;
 
     public Session()  {
     }
 
-    public Session(String name, Date date, String duration, int idRoom, int currentNb, int maxNb) {
+    public Session(String name, String date, String duration, Room room, int currentNb, int maxNb) {
         this.name = name;
         this.date = date;
         this.duration = duration;
-        this.idRoom = idRoom;
+        this.room = room;
         this.currentNb = currentNb;
         this.maxNb = maxNb;
     }
 
-    public Session(int id, String name, Date date, String duration, int idRoom, int currentNb, int maxNb) {
+    public Session(int id, String name, String date, String duration, Room room, int currentNb, int maxNb) {
         this.id = id;
         this.name = name;
         this.date = date;
         this.duration = duration;
-        this.idRoom = idRoom;
+        this.room = room;
         this.currentNb = currentNb;
         this.maxNb = maxNb;
     }
@@ -52,11 +52,11 @@ public class Session implements Parcelable {
         this.name = name;
     }
 
-    public Date getDate() {
+    public String getDate() {
         return date;
     }
 
-    public void setDate(Date date) {
+    public void setDate(String date) {
         this.date = date;
     }
 
@@ -68,12 +68,12 @@ public class Session implements Parcelable {
         this.duration = duration;
     }
 
-    public int getIdRoom() {
-        return idRoom;
+    public Room getroom() {
+        return room;
     }
 
-    public void setIdRoom(int idRoom) {
-        this.idRoom = idRoom;
+    public void setroom(Room room) {
+        this.room = room;
     }
 
     public int getCurrentNb() {
@@ -99,7 +99,7 @@ public class Session implements Parcelable {
                 ", name='" + name + '\'' +
                 ", date='" + date + '\'' +
                 ", duration='" + duration + '\'' +
-                ", idRoom=" + idRoom +
+                ", room=" + room +
                 ", currentNb=" + currentNb +
                 ", maxNb=" + maxNb +
                 '}';
@@ -114,7 +114,7 @@ public class Session implements Parcelable {
         Session session = (Session) o;
 
         if (getId() != session.getId()) return false;
-        if (getIdRoom() != session.getIdRoom()) return false;
+        if (getroom() != session.getroom()) return false;
         if (getCurrentNb() != session.getCurrentNb()) return false;
         if (getMaxNb() != session.getMaxNb()) return false;
         if (getName() != null ? !getName().equals(session.getName()) : session.getName() != null)
@@ -130,7 +130,6 @@ public class Session implements Parcelable {
         result = 31 * result + (getName() != null ? getName().hashCode() : 0);
         result = 31 * result + (getDate() != null ? getDate().hashCode() : 0);
         result = 31 * result + (getDuration() != null ? getDuration().hashCode() : 0);
-        result = 31 * result + getIdRoom();
         result = 31 * result + getCurrentNb();
         result = 31 * result + getMaxNb();
         return result;
@@ -145,18 +144,18 @@ public class Session implements Parcelable {
     public void writeToParcel(Parcel parcel, int i) {
         parcel.writeInt(id);
         parcel.writeString(name);
-        parcel.writeLong(date.getTime());
+        parcel.writeString(date);
         parcel.writeString(duration);
-        parcel.writeInt(idRoom);
+        parcel.writeParcelable(room,i);
         parcel.writeInt(currentNb);
         parcel.writeInt(maxNb);
     }
     public void readFromParcel(Parcel in) {
         id = in.readInt();
         name = in.readString();
-        date = new Date(in.readLong());
+        date = in.readString();
         duration = in.readString();
-        idRoom = in.readInt();
+        room = in.readParcelable(ClassLoader.getSystemClassLoader());
         currentNb = in.readInt();
         maxNb = in.readInt();
     }
