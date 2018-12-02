@@ -46,3 +46,9 @@ api_session_read_all:
 api_session_delete:
     path:     /session/delete/{id}
     defaults: { _controller: AppBundle:Session:delete }
+api_participation_create:
+    path:     /Participation/add/{user}/{session}
+    defaults: { _controller: AppBundle:Participation:create }
+api_participation_remove:
+    path:     /Participation/rem/{user}/{session}
+    defaults: { _controller: AppBundle:Participation:remove }
