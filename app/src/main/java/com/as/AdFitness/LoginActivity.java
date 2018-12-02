@@ -10,26 +10,14 @@ import android.support.v7.widget.AppCompatTextView;
 import android.support.v7.widget.LinearLayoutCompat;
 import android.text.TextUtils;
 import android.util.Log;
-import android.util.Patterns;
 import android.view.View;
-import android.widget.Toast;
-
 import com.as.AdFitness.pojo.User;
 import com.as.AdFitness.utility.Api;
 import com.as.AdFitness.utility.UserService;
-
-import org.json.JSONException;
-import org.json.JSONObject;
-
-import io.reactivex.Single;
-import io.reactivex.annotations.NonNull;
-import io.reactivex.annotations.Nullable;
 import retrofit2.Call;
 import retrofit2.Callback;
 import retrofit2.Response;
-import retrofit2.Retrofit;
-import retrofit2.converter.gson.GsonConverterFactory;
-import retrofit2.http.Path;
+
 
 
 public class LoginActivity extends AppCompatActivity implements View.OnClickListener {

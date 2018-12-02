@@ -1,6 +1,7 @@
 package com.as.AdFitness.fragments;
 
 import android.content.Context;
+import android.content.SharedPreferences;
 import android.net.Uri;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
@@ -25,6 +26,7 @@ public class ScheduleDayFragment extends Fragment {
     private int position = 0;
     private RecyclerView recyclerView;
     private SessionAdapter adapter;
+    private SharedPreferences sharedPreferences;
 
     private DashboardActivity dashboardActivity;
 
@@ -45,10 +47,12 @@ public class ScheduleDayFragment extends Fragment {
 
         ArrayList<Session> ListSession = getArguments().getParcelableArrayList("session");
 
+        sharedPreferences = getActivity().getSharedPreferences("AdFitness",Context.MODE_PRIVATE);
+        int userid=sharedPreferences.getInt("id",0);
         if(ListSession!=null)
         {
             recyclerView = (RecyclerView) view.findViewById(R.id.recycleView_schedule);
-            adapter = new SessionAdapter(getContext(),ListSession);
+            adapter = new SessionAdapter(getContext(),ListSession,userid);
             LinearLayoutManager llm = new LinearLayoutManager(getContext());
             llm.setOrientation(LinearLayoutManager.VERTICAL);
             recyclerView.setLayoutManager(llm);

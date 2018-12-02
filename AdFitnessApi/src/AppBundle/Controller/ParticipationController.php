@@ -22,29 +22,31 @@ class ParticipationController extends Controller
         $p->setUser($em->getRepository("AppBundle:User")->find($request->get('user')));
         $em->persist($p);
         $em->flush();
-        $serializer = new Serializer([new ObjectNormalizer()]);
-        $formated = $serializer->normalize($p);
-        return new JsonResponse($formated);
+        if(is_null($p))
+            return new JsonResponse("false");
+        else return new JsonResponse("true");
     }
     public function removeAction(Request $request)
     {
         $p = new Participation();
         $em = $this->getDoctrine()->getManager();
-        $p->setSession($em->getRepository("AppBundle:Session")->find($request->get('session')));
-        $p->setUser($em->getRepository("AppBundle:User")->find($request->get('user')));
-        $em->remove($p);
-        $em->flush();
-
-        $p->setSession($em->getRepository("AppBundle:Session")->find($request->get('session')));
+        $session = $em->getRepository("AppBundle:Session")->find($request->get('session'));
+        $user = $em->getRepository("AppBundle:User")->find($request->get('user'));
+        $p->setSession($session);
         $p->getSession()->setCurrentNb($p->getSession()->getCurrentNb()-1);
         $em->persist($p->getSession());
         $em->flush();
 
-        $ps=$this->getDoctrine()->getManager()
-            ->getRepository('AppBundle:Participation')->findAll();
-        $serializer=new Serializer([new ObjectNormalizer()]);
-        $formated=$serializer->normalize($ps);
-        return new JsonResponse($formated);
+
+
+        $p  = $em->getRepository("AppBundle:Participation")->findOneBy(array('user'=>$user,'session'=>$session));
+        $em->remove($p);
+        $em->flush();
+
+
+        if(is_null($p))
+            return new JsonResponse("false");
+        else return new JsonResponse("true");
     }
 
 }

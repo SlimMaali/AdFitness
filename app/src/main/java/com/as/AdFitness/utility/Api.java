@@ -1,5 +1,7 @@
 package com.as.AdFitness.utility;
 
+import com.as.AdFitness.pojo.Participation;
+
 import retrofit2.Retrofit;
 import retrofit2.converter.gson.GsonConverterFactory;
 
@@ -11,6 +13,7 @@ public class Api {
     private UserService userService;
     private RoomService roomService;
     private SessionService sessionService;
+    private ParticipationService participationService;
 
 
     public static Api getInstance() {
@@ -36,6 +39,7 @@ public class Api {
         this.userService = retrofit.create(UserService.class);
         this.roomService = retrofit.create(RoomService.class);
         this.sessionService = retrofit.create(SessionService.class);
+        this.participationService = retrofit.create(ParticipationService.class);
         //others here
     }
 
@@ -44,6 +48,7 @@ public class Api {
     }
     public RoomService getRoomService() { return this.roomService; }
     public SessionService getSessionService() { return sessionService; }
+    public ParticipationService getParticipationService() { return this.participationService; }
 
 
 }

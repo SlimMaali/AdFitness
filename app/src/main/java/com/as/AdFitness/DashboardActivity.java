@@ -36,6 +36,7 @@ public class DashboardActivity extends AppCompatActivity implements NavigationVi
     private NavigationView navigationView;
     private SharedPreferences sharedPreferences;
     private SharedPreferences.Editor editor;
+    private static User loggedUser ;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -81,7 +82,7 @@ public class DashboardActivity extends AppCompatActivity implements NavigationVi
         fragmentTransaction.addToBackStack(null);
         fragmentTransaction.commit();
 
-        User loggedUser = (User)getIntent().getSerializableExtra("user");
+        loggedUser = (User)getIntent().getSerializableExtra("user");
         TextView tv = (TextView) navigationView.getHeaderView(0).findViewById(R.id.tvName);
         tv.setText(loggedUser.getLastName()+" "+loggedUser.getFirstName());
 
@@ -133,7 +134,6 @@ public class DashboardActivity extends AppCompatActivity implements NavigationVi
                     searchView.setIconified(true);
                 }
                 //searchView.onActionViewCollapsed();
-                //Toast.makeText(DashboardActivity.this, "Query: "+query, Toast.LENGTH_LONG).show();
                 return false;
             }
             @Override
