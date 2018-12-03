@@ -127,7 +127,10 @@ public class LoginActivity extends AppCompatActivity implements View.OnClickList
                 editor.putString("password",u.getPassword());
                 editor.putString("status","logged");
                 editor.apply();
-                Intent loggedIn = new Intent(LoginActivity.this, DashboardActivity.class);
+                Intent loggedIn;
+                if (u.getRole().equals("admin"))loggedIn = new Intent(LoginActivity.this, AdminHomeActivity.class);
+                else loggedIn = new Intent(LoginActivity.this, DashboardActivity.class);
+
                 loggedIn.putExtra("user",u);
                 startActivity(loggedIn);
                 finish();

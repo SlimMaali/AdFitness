@@ -3,6 +3,7 @@
     package="com.as.AdFitness">
 
     <uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE"/>
 
     <application
         android:allowBackup="true"
@@ -37,7 +38,8 @@
         </activity>
         <activity android:name=".ForgotPasswordActivity" />
         <activity android:name=".SignUpActivity" />
-        <activity android:name=".AdminHomeActivity"></activity>
+        <activity android:name=".AdminHomeActivity"
+            android:screenOrientation="landscape"></activity>
     </application>
 
 </manifest>
