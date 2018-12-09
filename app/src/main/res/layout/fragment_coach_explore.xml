@@ -4,12 +4,8 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".fragments.CoachExploreFragment"
-    android:id="@+id/container_coach"
-    >
-
-    <!-- TODO: Update blank fragment layout -->
-
-    <ListView
+    android:id="@+id/container_coach">
+        <ListView
         android:id="@+id/listView_Coachs"
         android:layout_width="match_parent"
         android:layout_height="match_parent" />
