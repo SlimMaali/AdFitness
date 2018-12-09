@@ -19,7 +19,7 @@ public class AdminUserActivity extends AppCompatActivity {
 
 
         final ArrayList<User> Users = getIntent().getParcelableArrayListExtra("users");
-        listView = (ListView) findViewById(R.id.listview_Users);
+        listView = (ListView) findViewById(R.id.listView_Users);
         CoachAdapter adapter = new CoachAdapter(this,Users);
         listView.setAdapter(adapter);
 
