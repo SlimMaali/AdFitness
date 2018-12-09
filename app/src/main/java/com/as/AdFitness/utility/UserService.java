@@ -31,4 +31,6 @@ public interface UserService {
                             );
     @GET("coach")
     Call<ArrayList<User>> getCoachs();
+    @GET("user")
+    Call<ArrayList<User>> getUsers();
 }
