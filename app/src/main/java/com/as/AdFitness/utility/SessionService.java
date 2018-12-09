@@ -3,6 +3,7 @@ package com.as.AdFitness.utility;
 import com.as.AdFitness.pojo.Room;
 import com.as.AdFitness.pojo.Session;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import retrofit2.Call;
@@ -16,5 +17,5 @@ public interface SessionService {
     Call<Session> getSession(@Path("id") int id);
     //Get Rooms
     @GET("session")
-    Call<List<Session>> getSessions();
+    Call<ArrayList<Session>> getSessions();
 }

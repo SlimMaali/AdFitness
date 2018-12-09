@@ -3,6 +3,7 @@ package com.as.AdFitness.utility;
 import com.as.AdFitness.pojo.Room;
 import com.as.AdFitness.pojo.User;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import retrofit2.Call;
@@ -18,5 +19,5 @@ public interface RoomService {
     Call<Room> getRoom(@Path("id") int id);
     //Get Rooms
     @GET("room")
-    Call<List<Room>> getRooms();
+    Call<ArrayList<Room>> getRooms();
 }

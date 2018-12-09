@@ -3,6 +3,7 @@
 namespace AppBundle\Controller;
 
 use AppBundle\Entity\Participation;
+use AppBundle\Entity\Session;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Symfony\Component\HttpFoundation\JsonResponse;
 use Symfony\Component\HttpFoundation\Request;
@@ -49,4 +50,23 @@ class ParticipationController extends Controller
         else return new JsonResponse("true");
     }
 
+    public function myParticipationAction(Request $request)
+    {
+        $em = $this->getDoctrine()->getManager();
+        $user = $em->getRepository("AppBundle:User")->find($request->get('user'));
+        $ListPart = $em->getRepository("AppBundle:Participation")->findBy(array('user'=>$user));
+        $session=array();
+        foreach($ListPart as $p)
+        {
+            $id = $p->getSession()->getId();
+            $s=$em->getRepository("AppBundle:Session")->find($id);
+            $s->setDate($s->getDate()->format('Y-m-d H:i'));
+            array_push($session,$s);
+         /*   $p->getSession()->setDate($p->getSession()->getDate());
+            array_push($session,$p->getSession());*/
+        }
+        $serializer=new Serializer([new ObjectNormalizer()]);
+        $formated=$serializer->normalize($session);
+        return new JsonResponse($formated);
+    }
 }

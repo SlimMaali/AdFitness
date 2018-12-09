@@ -52,3 +52,6 @@ api_participation_create:
 api_participation_remove:
     path:     /Participation/rem/{user}/{session}
     defaults: { _controller: AppBundle:Participation:remove }
+api_my_participation:
+    path:     /myParticipation/{user}
+    defaults: { _controller: AppBundle:Participation:myParticipation }

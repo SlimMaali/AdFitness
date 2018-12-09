@@ -14,6 +14,7 @@ import android.view.ViewGroup;
 
 import com.as.AdFitness.DashboardActivity;
 import com.as.AdFitness.R;
+import com.as.AdFitness.pojo.DataHolder;
 import com.as.AdFitness.pojo.Session;
 import com.as.AdFitness.utility.SessionAdapter;
 
@@ -46,6 +47,12 @@ public class ScheduleDayFragment extends Fragment {
 
 
         ArrayList<Session> ListSession = getArguments().getParcelableArrayList("session");
+       // ArrayList<Session> mySubs = getArguments().getParcelableArrayList("subs");
+
+     /*   for(Session S : mySubs)
+        {
+            Log.e("Holaa Senior",S.toString());
+        }*/
 
         sharedPreferences = getActivity().getSharedPreferences("AdFitness",Context.MODE_PRIVATE);
         int userid=sharedPreferences.getInt("id",0);

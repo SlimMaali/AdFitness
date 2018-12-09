@@ -55,10 +55,10 @@ public class OurClubFragment extends Fragment {
 
 
         RoomService roomService = Api.getInstance().getRoomService();
-        Call<List<Room>> call = roomService.getRooms();
-        call.enqueue(new Callback<List<Room>> () {
+        Call<ArrayList<Room>> call = roomService.getRooms();
+        call.enqueue(new Callback<ArrayList<Room>> () {
             @Override
-            public void onResponse(Call<List<Room>> call, Response<List<Room>> response) {
+            public void onResponse(Call<ArrayList<Room>> call, Response<ArrayList<Room>> response) {
                 List<Room> rooms = response.body();
                 for (Room f: rooms) {
                     RoomExploreFragment RF = new RoomExploreFragment();
@@ -75,7 +75,7 @@ public class OurClubFragment extends Fragment {
             }
 
             @Override
-            public void onFailure(Call<List<Room>> call, Throwable t) {
+            public void onFailure(Call<ArrayList<Room>> call, Throwable t) {
 
             }
         });
