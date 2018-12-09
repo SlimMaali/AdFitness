@@ -82,7 +82,8 @@ public class OurClubFragment extends Fragment {
         });
 
 
-
+        viewPager.setAdapter(adapter);
+        tabLayout.setupWithViewPager(viewPager);
 
 
         return view;

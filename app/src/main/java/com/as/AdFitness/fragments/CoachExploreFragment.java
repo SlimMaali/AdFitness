@@ -41,7 +41,7 @@ public class CoachExploreFragment extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
-        View v = inflater.inflate(R.layout.fragment_coach_explore, container, false);
+        final View v = inflater.inflate(R.layout.fragment_coach_explore, container, false);
         final ArrayList<User> Coachs = getArguments().getParcelableArrayList("coachs");
         listView = (ListView) v.findViewById(R.id.listView_Coachs);
         CoachAdapter adapter = new CoachAdapter(getActivity(),Coachs);
@@ -58,8 +58,11 @@ public class CoachExploreFragment extends Fragment {
                         Bundle b = new Bundle();
                         b.putParcelable("profile",p);
                         CSF.setArguments(b);
-
-                        getFragmentManager().beginTransaction().addToBackStack("stack").replace(R.id.container_coach,CSF).commit();
+                            getFragmentManager().beginTransaction()
+                                    .replace(v.findViewById(R.id.container_coach).getId()
+                                            , CSF)
+                                    .addToBackStack(null)
+                                    .commit();
                     }
                     @Override
                     public void onFailure(Call<Profile> call, Throwable t) {
@@ -71,6 +74,12 @@ public class CoachExploreFragment extends Fragment {
         listView.setAdapter(adapter);
 
         return v;
+    }
+
+    @Override
+    public void onAttach(Context context) {
+        super.onAttach(context);
+        dashboardActivity = (DashboardActivity) context;
     }
 
 

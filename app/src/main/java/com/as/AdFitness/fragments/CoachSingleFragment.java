@@ -37,7 +37,7 @@ public class CoachSingleFragment extends Fragment {
         ImageView imageField = (ImageView)view.findViewById(R.id.coach_img_single);
         nameField.setText(P.getUser().getFirstName()+" "+P.getUser().getLastName());
         descriptionField.setText(P.getUser().getBirthday()+" "+P.getUser().getPhone());
-        Picasso.with(getContext()).load("http://10.0.2.2/uploads/user_image/"+P.getImage()+".png").into(imageField);
+        Picasso.with(getContext()).load("http://10.0.2.2/AdFitness/uploads/user_image/"+P.getImage()+".png").into(imageField);
         return view;
     }
 
