@@ -3,9 +3,9 @@
 namespace AppBundle\Entity;
 
 /**
- * Client
+ * Profile
  */
-class Client
+class Profile
 {
     /**
      * @var int
@@ -29,11 +29,44 @@ class Client
      * @var float
      */
     private $height;
+    /**
+     * @var string
+     */
+    private $image;
 
     /**
-     * @var \DateTime
+     * @return \stdClass
      */
-    private $createdAt;
+    public function getUser()
+    {
+        return $this->user;
+    }
+
+    /**
+     * @param \stdClass $user
+     */
+    public function setUser($user)
+    {
+        $this->user = $user;
+    }
+
+    /**
+     * @return string
+     */
+    public function getImage()
+    {
+        return $this->image;
+    }
+
+    /**
+     * @param string $image
+     */
+    public function setImage($image)
+    {
+        $this->image = $image;
+    }
+
+
 
 
     /**
@@ -51,7 +84,7 @@ class Client
      *
      * @param string $gender
      *
-     * @return Client
+     * @return Profile
      */
     public function setGender($gender)
     {
@@ -75,7 +108,7 @@ class Client
      *
      * @param float $weight
      *
-     * @return Client
+     * @return Profile
      */
     public function setWeight($weight)
     {
@@ -99,7 +132,7 @@ class Client
      *
      * @param float $height
      *
-     * @return Client
+     * @return Profile
      */
     public function setHeight($height)
     {
@@ -118,28 +151,5 @@ class Client
         return $this->height;
     }
 
-    /**
-     * Set createdAt
-     *
-     * @param \DateTime $createdAt
-     *
-     * @return Client
-     */
-    public function setCreatedAt($createdAt)
-    {
-        $this->createdAt = $createdAt;
-
-        return $this;
-    }
-
-    /**
-     * Get createdAt
-     *
-     * @return \DateTime
-     */
-    public function getCreatedAt()
-    {
-        return $this->createdAt;
-    }
 }
 

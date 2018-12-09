@@ -23,6 +23,7 @@ import android.view.MenuItem;
 import android.view.View;
 import android.widget.TextView;
 
+import com.as.AdFitness.fragments.CoachyFragment;
 import com.as.AdFitness.fragments.OurClubFragment;
 import com.as.AdFitness.fragments.HomeFragment;
 import com.as.AdFitness.fragments.MyCoursesFragment;
@@ -82,7 +83,7 @@ public class DashboardActivity extends AppCompatActivity implements NavigationVi
         fragmentTransaction.addToBackStack(null);
         fragmentTransaction.commit();
 
-        loggedUser = (User)getIntent().getSerializableExtra("user");
+        loggedUser = (User)getIntent().getParcelableExtra("user");
         TextView tv = (TextView) navigationView.getHeaderView(0).findViewById(R.id.tvName);
         tv.setText(loggedUser.getLastName()+" "+loggedUser.getFirstName());
 
@@ -161,7 +162,7 @@ public class DashboardActivity extends AppCompatActivity implements NavigationVi
     @Override
     public boolean onNavigationItemSelected(@NonNull MenuItem item) {
         Fragment fragment = null;
-        String title = "Home";
+        String title = "Accueil";
         int id = item.getItemId();
         navigationView.setCheckedItem(id);
         if (id == R.id.action_home) {
@@ -176,6 +177,9 @@ public class DashboardActivity extends AppCompatActivity implements NavigationVi
         } else if (id == R.id.action_my_courses) {
             title = "Mes Cours";
             fragment = new MyCoursesFragment();
+        } else if (id == R.id.action_live_training) {
+            title = "Coachy Live";
+            fragment = new CoachyFragment();
         } else if (id == R.id.action_setting) {
             title = "Settings";
             fragment = new ShopFragment();

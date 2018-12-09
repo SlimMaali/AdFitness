@@ -2,6 +2,8 @@ package com.as.AdFitness.utility;
 
 import com.as.AdFitness.pojo.User;
 
+import java.util.ArrayList;
+
 import retrofit2.Call;
 import retrofit2.http.GET;
 import retrofit2.http.Path;
@@ -27,4 +29,6 @@ public interface UserService {
                             @Path("firstName") String firstName,@Path("lastName") String lastName,
                             @Path("phone") String phone
                             );
+    @GET("coach")
+    Call<ArrayList<User>> getCoachs();
 }

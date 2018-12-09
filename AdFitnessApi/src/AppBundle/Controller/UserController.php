@@ -69,4 +69,13 @@ class UserController extends Controller
         $formated=$serializer->normalize($user);
         return new JsonResponse($formated);
     }
+
+    public function readAllCoachAction(Request $request)
+    {
+        $user=$this->getDoctrine()->getManager()
+            ->getRepository('AppBundle:User')->findBy(array('role'=>'coach'));
+        $serializer=new Serializer([new ObjectNormalizer()]);
+        $formated=$serializer->normalize($user);
+        return new JsonResponse($formated);
+    }
 }

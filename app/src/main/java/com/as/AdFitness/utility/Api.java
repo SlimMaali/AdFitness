@@ -14,6 +14,7 @@ public class Api {
     private RoomService roomService;
     private SessionService sessionService;
     private ParticipationService participationService;
+    private ProfileService profileService;
 
 
     public static Api getInstance() {
@@ -40,6 +41,7 @@ public class Api {
         this.roomService = retrofit.create(RoomService.class);
         this.sessionService = retrofit.create(SessionService.class);
         this.participationService = retrofit.create(ParticipationService.class);
+        this.profileService = retrofit.create(ProfileService.class);
         //others here
     }
 
@@ -49,6 +51,5 @@ public class Api {
     public RoomService getRoomService() { return this.roomService; }
     public SessionService getSessionService() { return sessionService; }
     public ParticipationService getParticipationService() { return this.participationService; }
-
-
+    public ProfileService getProfileService() { return profileService; }
 }

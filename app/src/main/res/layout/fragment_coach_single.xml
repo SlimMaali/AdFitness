@@ -1,0 +1,46 @@
+<android.support.v4.widget.NestedScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context="com.as.AdFitness.fragments.CoachSingleFragment">
+
+    <android.support.v7.widget.LinearLayoutCompat
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical">
+
+        <ImageView
+            android:layout_width="match_parent"
+            android:layout_height="220dp"
+            android:contentDescription="TODO" android:scaleType="centerCrop"
+            android:background="@drawable/recipe_2"/>
+
+        <ImageView
+            android:id="@+id/coach_img_single"
+            android:layout_width="100dp"
+            android:layout_height="100dp"
+            android:contentDescription="TODO" android:src="@drawable/avatar"
+            android:layout_marginTop="-50dp"
+            android:layout_gravity="center"/>
+
+
+        <android.support.v7.widget.AppCompatTextView
+            android:id="@+id/coach_name_single"
+            android:layout_marginTop="10dp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:textStyle="bold"
+            android:text="Martha Harris"/>
+
+        <android.support.v7.widget.AppCompatTextView
+            android:id="@+id/coach_description_single"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:padding="10dp"
+            android:layout_gravity="center"
+            android:gravity="center"
+            android:text="@string/default_text"/>
+    </android.support.v7.widget.LinearLayoutCompat>
+
+</android.support.v4.widget.NestedScrollView>

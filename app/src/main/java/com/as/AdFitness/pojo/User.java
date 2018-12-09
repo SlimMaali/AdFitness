@@ -1,38 +1,32 @@
 package com.as.AdFitness.pojo;
 
+import android.os.Parcel;
+import android.os.Parcelable;
+
 import com.google.gson.annotations.Expose;
 import com.google.gson.annotations.SerializedName;
 
 import java.io.Serializable;
 
 
-public class User implements Serializable {
-    @Expose
-    @SerializedName("id")
+public class User implements Parcelable {
+
     private int id;
-    @Expose
-    @SerializedName("username")
+
     private String username;
-    @Expose
-    @SerializedName("password")
+
     private String password;
-    @Expose
-    @SerializedName("email")
+
     private String email;
-    @Expose
-    @SerializedName("firstName")
+
     private String firstName;
-    @Expose
-    @SerializedName("lastName")
+
     private String lastName;
-    @Expose
-    @SerializedName("birthday")
+
     private String birthday;
-    @Expose
-    @SerializedName("phone")
+
     private String phone;
-    @Expose
-    @SerializedName("role")
+
     private String role;
 
     public User() {
@@ -133,7 +127,52 @@ public class User implements Serializable {
         this.role = role;
     }
 
+    @Override
+    public int describeContents() {
+        return 0;
+    }
 
+    @Override
+    public void writeToParcel(Parcel parcel, int i) {
+        parcel.writeInt(id);
+        parcel.writeString(username);
+        parcel.writeString(password);
+        parcel.writeString(email);
+        parcel.writeString(firstName);
+        parcel.writeString(lastName);
+        parcel.writeString(birthday);
+        parcel.writeString(phone);
+        parcel.writeString(role);
+
+    }
+    public void readFromParcel(Parcel in) {
+        id = in.readInt();
+        username = in.readString();
+        password = in.readString();
+        email = in.readString();
+        firstName = in.readString();
+        lastName = in.readString();
+        birthday = in.readString();
+        phone= in.readString();
+        role = in.readString();
+    }
+
+    public User(Parcel in) {
+        super();
+        readFromParcel(in);
+    }
+
+    public static final Parcelable.Creator<User> CREATOR = new Parcelable.Creator<User>() {
+        public User createFromParcel(Parcel in) {
+            return new User(in);
+        }
+
+        public User[] newArray(int size) {
+
+            return new User[size];
+        }
+
+    };
     @Override
     public String toString() {
         return "User{" +
@@ -147,5 +186,44 @@ public class User implements Serializable {
                 ", phone='" + phone + '\'' +
                 ", role='" + role + '\'' +
                 '}';
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+
+        User user = (User) o;
+
+        if (getId() != user.getId()) return false;
+        if (getUsername() != null ? !getUsername().equals(user.getUsername()) : user.getUsername() != null)
+            return false;
+        if (getPassword() != null ? !getPassword().equals(user.getPassword()) : user.getPassword() != null)
+            return false;
+        if (getEmail() != null ? !getEmail().equals(user.getEmail()) : user.getEmail() != null)
+            return false;
+        if (getFirstName() != null ? !getFirstName().equals(user.getFirstName()) : user.getFirstName() != null)
+            return false;
+        if (getLastName() != null ? !getLastName().equals(user.getLastName()) : user.getLastName() != null)
+            return false;
+        if (getBirthday() != null ? !getBirthday().equals(user.getBirthday()) : user.getBirthday() != null)
+            return false;
+        if (getPhone() != null ? !getPhone().equals(user.getPhone()) : user.getPhone() != null)
+            return false;
+        return getRole() != null ? getRole().equals(user.getRole()) : user.getRole() == null;
+    }
+
+    @Override
+    public int hashCode() {
+        int result = getId();
+        result = 31 * result + (getUsername() != null ? getUsername().hashCode() : 0);
+        result = 31 * result + (getPassword() != null ? getPassword().hashCode() : 0);
+        result = 31 * result + (getEmail() != null ? getEmail().hashCode() : 0);
+        result = 31 * result + (getFirstName() != null ? getFirstName().hashCode() : 0);
+        result = 31 * result + (getLastName() != null ? getLastName().hashCode() : 0);
+        result = 31 * result + (getBirthday() != null ? getBirthday().hashCode() : 0);
+        result = 31 * result + (getPhone() != null ? getPhone().hashCode() : 0);
+        result = 31 * result + (getRole() != null ? getRole().hashCode() : 0);
+        return result;
     }
 }

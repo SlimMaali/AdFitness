@@ -1,7 +1,7 @@
-AppBundle\Entity\Client:
+AppBundle\Entity\Profile:
     type: entity
     table: null
-    repositoryClass: AppBundle\Repository\ClientRepository
+    repositoryClass: AppBundle\Repository\ProfileRepository
     id:
         id:
             type: integer
@@ -11,7 +11,7 @@ AppBundle\Entity\Client:
     manyToOne:
       user:
         targetEntity: User
-        inversedBy: Client
+        inversedBy: Profile
         joinColumn:
           name: user_id
           referencedColumnName: id
@@ -23,7 +23,7 @@ AppBundle\Entity\Client:
             type: float
         height:
             type: float
-        createdAt:
-            type: date
-
+        image:
+            type: string
+            length : 255
     lifecycleCallbacks: {  }

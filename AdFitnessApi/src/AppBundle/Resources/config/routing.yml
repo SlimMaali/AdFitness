@@ -10,6 +10,9 @@ api_user_read:
 api_user_readall:
     path: /user
     defaults: {_controller: AppBundle:User:readAll}
+api_coach_readall:
+    path: /coach
+    defaults: {_controller: AppBundle:User:readAllCoach}
 api_username_exist:
     path: /usernameExist/{username}
     defaults: {_controller: AppBundle:User:usernameExist}
@@ -55,3 +58,9 @@ api_participation_remove:
 api_my_participation:
     path:     /myParticipation/{user}
     defaults: { _controller: AppBundle:Participation:myParticipation }
+api_profile_read:
+    path:     /profile/{id}
+    defaults: { _controller: AppBundle:Profile:read }
+api_profile_read_all:
+    path:     /profile
+    defaults: { _controller: AppBundle:Profile:readall }
