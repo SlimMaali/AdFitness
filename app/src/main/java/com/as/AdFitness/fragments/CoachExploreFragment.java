@@ -59,9 +59,9 @@ public class CoachExploreFragment extends Fragment {
                         b.putParcelable("profile",p);
                         CSF.setArguments(b);
                             getFragmentManager().beginTransaction()
-                                    .replace(R.id.container_coach
+                                    .replace(v.findViewById(R.id.container_coach).getId()
                                             , CSF)
-                                    .addToBackStack("stack")
+                                    .addToBackStack(null)
                                     .commit();
                     }
                     @Override
