@@ -1,6 +1,5 @@
 package com.as.AdFitness;
 
-import android.app.ProgressDialog;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Bundle;
@@ -39,7 +38,11 @@ public class SplashScreen extends AppCompatActivity {
                 @Override
                 public void onResponse(Call<User> call, Response<User> response) {
                     User u = response.body();
-                    Intent loggedIn = new Intent(SplashScreen.this, DashboardActivity.class);
+
+                    Intent loggedIn;
+                    if (u.getRole().equals("admin"))loggedIn = new Intent(SplashScreen.this, AdminHomeActivity.class);
+                    else loggedIn = new Intent(SplashScreen.this, DashboardActivity.class);
+
                     loggedIn.putExtra("user",u);
                     startActivity(loggedIn);
                     finish();

@@ -64,3 +64,15 @@ api_profile_read:
 api_profile_read_all:
     path:     /profile
     defaults: { _controller: AppBundle:Profile:readall }
+api_post_add:
+    path:     /Post/add/{Title}/{Image}/{Content}
+    defaults: { _controller: AppBundle:Post:Add }
+api_post_remove:
+    path:     /Post/remove/{id}
+    defaults: { _controller: AppBundle:Post:Remove }
+api_post_list:
+    path:     /Post/list
+    defaults: { _controller: AppBundle:Post:list }
+api_post_edit:
+    path:     /Post/edit/{id}/{Title}/{Image}/{Content}
+    defaults: { _controller: AppBundle:Post:Edit }
