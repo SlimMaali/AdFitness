@@ -12,9 +12,9 @@ import android.view.View;
 
 import com.as.AdFitness.fragments.JoinInfographicFragment;
 import com.as.AdFitness.fragments.WelcomeInfographicFragment;
-import com.as.AdFitness.pojo.User;
+import com.as.AdFitness.entities.User;
 import com.as.AdFitness.utility.Api;
-import com.as.AdFitness.utility.UserService;
+import com.as.AdFitness.service.UserService;
 import com.rd.PageIndicatorView;
 import com.rd.animation.type.AnimationType;
 import com.rd.draw.data.Orientation;

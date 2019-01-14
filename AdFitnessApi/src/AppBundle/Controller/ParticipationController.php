@@ -69,4 +69,13 @@ class ParticipationController extends Controller
         $formated=$serializer->normalize($session);
         return new JsonResponse($formated);
     }
+    public function myParticipationCountAction(Request $request)
+    {
+        $em = $this->getDoctrine()->getManager();
+        $user = $em->getRepository("AppBundle:User")->find($request->get('user'));
+        $ListPart = $em->getRepository("AppBundle:Participation")->findBy(array('user'=>$user));
+        $serializer=new Serializer([new ObjectNormalizer()]);
+        $formated=$serializer->normalize(count($ListPart));
+        return new JsonResponse($formated);
+    }
 }

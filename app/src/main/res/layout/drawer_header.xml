@@ -1,27 +1,36 @@
 <?xml version="1.0" encoding="utf-8"?>
-<android.support.v7.widget.LinearLayoutCompat xmlns:android="http://schemas.android.com/apk/res/android"
+<android.support.v7.widget.LinearLayoutCompat xmlns:android="http://schemas.android.com/apk/res/android"     xmlns:app="http://schemas.android.com/apk/res-auto"
+
     android:orientation="vertical" android:layout_width="match_parent"
+
     android:layout_height="match_parent">
 
     <!-- Drawer header -->
     <android.support.v7.widget.LinearLayoutCompat
+        android:id="@+id/User_drawer_header"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:background="@color/blackOverlay"
         android:padding="10dp"
         android:orientation="vertical"
-        android:layout_marginBottom="20dp">
+        android:layout_marginBottom="10dp"
+        android:layout_marginTop="10dp"
+        >
 
         <android.support.v7.widget.LinearLayoutCompat
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:orientation="horizontal">
 
-            <!-- Avatar image -->
-            <ImageView
-                android:layout_width="50dp"
-                android:layout_height="50dp"
-                android:contentDescription="TODO"  android:src="@drawable/avatar"/>
+
+            <com.mikhaellopez.circularimageview.CircularImageView
+                android:id="@+id/ivUser_drawer_header"
+                android:layout_width="75dp"
+                android:layout_height="75dp"
+                android:src="@drawable/avatar"
+                app:civ_border_color="@color/colorPrimary"
+                app:civ_border_width="4dp"
+                />
 
             <!-- User info: Name and Location -->
             <android.support.v7.widget.LinearLayoutCompat
@@ -37,14 +46,14 @@
                     android:layout_height="wrap_content"
                     android:text="Jon Snow"
                     android:textColor="@color/white"
-                    android:textSize="18sp"
+                    android:textSize="25dp"
                     android:textStyle="bold" />
 
                 <android.support.v7.widget.AppCompatTextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:textColor="@color/white"
-                    android:text="King's Landing, Winterfell"/>
+                    android:text="AdFitness Soukra, Aryanah"/>
 
             </android.support.v7.widget.LinearLayoutCompat>
 
@@ -57,34 +66,42 @@
             android:orientation="horizontal">
 
             <ImageView
-                android:layout_width="15dp"
-                android:layout_marginEnd="5dp" android:layout_marginRight="5dp"
+                android:layout_width="20dp"
+                android:layout_marginEnd="10dp" android:layout_marginRight="10dp"
                 android:layout_height="match_parent"
-                android:contentDescription="TODO"  android:src="@drawable/workout"/>
+                android:contentDescription="TODO"  android:src="@drawable/weight"/>
 
             <android.support.v7.widget.AppCompatTextView
+                android:id="@+id/tvWeight_drawer_header"
                 android:layout_width="wrap_content"
+                android:layout_marginEnd="10dp" android:layout_marginRight="10dp"
                 android:layout_height="wrap_content"
                 android:textColor="@color/white"
-                android:textSize="13sp"
-                android:layout_marginEnd="20dp" android:layout_marginRight="20dp"
-                android:text="12 Cours"/>
+                android:textSize="20sp"
+                android:text="70 KG"/>
 
             <ImageView
-                android:layout_width="15dp"
-                android:layout_marginEnd="5dp" android:layout_marginRight="5dp"
+                android:layout_width="20dp"
+                android:layout_marginEnd="10dp" android:layout_marginRight="10dp"
                 android:layout_height="match_parent"
-                android:contentDescription="TODO"  android:src="@drawable/network"/>
+                android:contentDescription="TODO"  android:src="@drawable/height"/>
 
             <android.support.v7.widget.AppCompatTextView
+                android:id="@+id/tvHeight_drawer_header"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:textColor="@color/white"
-                android:textSize="13sp"
-                android:text="666 Followers"/>
+                android:textSize="20sp"
+                android:layout_marginEnd="20dp" android:layout_marginRight="20dp"
+                android:text="1.72 M"/>
+
 
         </android.support.v7.widget.LinearLayoutCompat>
 
     </android.support.v7.widget.LinearLayoutCompat>
-
+    <View
+        android:layout_width="match_parent"
+        android:layout_margin="20dp"
+        android:layout_height="5dp"
+        android:background="@color/colorPrimary"/>
 </android.support.v7.widget.LinearLayoutCompat>

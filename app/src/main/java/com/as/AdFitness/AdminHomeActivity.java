@@ -6,9 +6,9 @@ import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 import android.widget.ImageButton;
 
-import com.as.AdFitness.pojo.User;
+import com.as.AdFitness.entities.User;
 import com.as.AdFitness.utility.Api;
-import com.as.AdFitness.utility.UserService;
+import com.as.AdFitness.service.UserService;
 
 import java.util.ArrayList;
 

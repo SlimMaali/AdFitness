@@ -6,6 +6,8 @@
         <item name="colorPrimary">@color/colorPrimary</item>
         <item name="colorPrimaryDark">@color/colorPrimaryDark</item>
         <item name="colorAccent">@color/colorAccent</item>
+        <item name="android:actionMenuTextColor">@color/white</item>
+        <item name="android:windowBackground">@color/blackOverlay</item>
     </style>
 
 
@@ -22,11 +24,12 @@
     </style>
 
     <!-- No action and title bar -->
-    <style name="NoActionTitleBar" parent="AppTheme">
+    <style name="NoActionTitleBar" parent="Theme.AppCompat.NoActionBar">
         <item name="android:windowActionBar">false</item>
         <item name="android:windowNoTitle">true</item>
         <item name="windowNoTitle">true</item>
         <item name="windowActionBar">false</item>
+        <item name="colorAccent">@color/colorPrimary</item>
     </style>
     <style name="AppTheme.NoActionTitleBar">
         <item name="windowActionBar">false</item>
@@ -45,6 +48,7 @@
         <!-- <item name="android:textColorPrimaryInverse">@color/abc_primary_text_material_light</item> -->
 
         <item name="actionMenuTextColor">@color/white</item>
+        <item name="android:actionMenuTextColor">@color/white</item>
         <!-- android:textColorSecondary is the color of the menu
              overflow icon (three vertical dots) -->
         <item name="android:textColorSecondary">@color/white</item>

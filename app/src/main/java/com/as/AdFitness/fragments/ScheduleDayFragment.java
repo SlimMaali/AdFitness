@@ -2,21 +2,18 @@ package com.as.AdFitness.fragments;
 
 import android.content.Context;
 import android.content.SharedPreferences;
-import android.net.Uri;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
-import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
 import com.as.AdFitness.DashboardActivity;
 import com.as.AdFitness.R;
-import com.as.AdFitness.pojo.DataHolder;
-import com.as.AdFitness.pojo.Session;
-import com.as.AdFitness.utility.SessionAdapter;
+import com.as.AdFitness.entities.Session;
+import com.as.AdFitness.adapters.SessionAdapter;
 
 import java.util.ArrayList;
 

@@ -2,7 +2,6 @@ package com.as.AdFitness.fragments;
 
 
 import android.content.Context;
-import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.support.design.widget.TabLayout;
 import android.support.v4.app.Fragment;
@@ -16,13 +15,9 @@ import android.view.ViewGroup;
 
 import com.as.AdFitness.DashboardActivity;
 import com.as.AdFitness.R;
-import com.as.AdFitness.pojo.DataHolder;
-import com.as.AdFitness.pojo.Session;
+import com.as.AdFitness.entities.Session;
 import com.as.AdFitness.utility.Api;
-import com.as.AdFitness.utility.ParticipationService;
-import com.as.AdFitness.utility.SessionService;
-
-import org.json.JSONException;
+import com.as.AdFitness.service.SessionService;
 
 import java.text.ParseException;
 import java.text.SimpleDateFormat;

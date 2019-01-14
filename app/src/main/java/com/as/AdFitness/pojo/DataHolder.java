@@ -1,7 +1,8 @@
 package com.as.AdFitness.pojo;
 
+import com.as.AdFitness.entities.Session;
+
 import java.util.ArrayList;
-import java.util.List;
 
 public class DataHolder {
     private static DataHolder dataHolder = null;

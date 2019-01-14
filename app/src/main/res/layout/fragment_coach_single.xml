@@ -7,13 +7,14 @@
     <android.support.v7.widget.LinearLayoutCompat
         android:layout_width="match_parent"
         android:layout_height="match_parent"
+        android:background="@color/blackOverlay"
         android:orientation="vertical">
 
         <ImageView
             android:layout_width="match_parent"
             android:layout_height="220dp"
             android:contentDescription="TODO" android:scaleType="centerCrop"
-            android:background="@drawable/recipe_2"/>
+            android:background="@drawable/community"/>
 
         <ImageView
             android:id="@+id/coach_img_single"
@@ -31,6 +32,7 @@
             android:layout_height="wrap_content"
             android:layout_gravity="center"
             android:textStyle="bold"
+            android:textColor="@color/colorPrimaryDark"
             android:text="Martha Harris"/>
 
         <android.support.v7.widget.AppCompatTextView
@@ -40,6 +42,7 @@
             android:padding="10dp"
             android:layout_gravity="center"
             android:gravity="center"
+            android:textColor="@color/colorPrimaryDark"
             android:text="@string/default_text"/>
     </android.support.v7.widget.LinearLayoutCompat>
 

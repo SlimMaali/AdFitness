@@ -1,6 +1,10 @@
 package com.as.AdFitness.utility;
 
-import com.as.AdFitness.pojo.Participation;
+import com.as.AdFitness.service.ParticipationService;
+import com.as.AdFitness.service.ProfileService;
+import com.as.AdFitness.service.RoomService;
+import com.as.AdFitness.service.SessionService;
+import com.as.AdFitness.service.UserService;
 
 import retrofit2.Retrofit;
 import retrofit2.converter.gson.GsonConverterFactory;

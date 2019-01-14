@@ -11,9 +11,9 @@ import android.support.v7.widget.LinearLayoutCompat;
 import android.text.TextUtils;
 import android.util.Log;
 import android.view.View;
-import com.as.AdFitness.pojo.User;
+import com.as.AdFitness.entities.User;
 import com.as.AdFitness.utility.Api;
-import com.as.AdFitness.utility.UserService;
+import com.as.AdFitness.service.UserService;
 import retrofit2.Call;
 import retrofit2.Callback;
 import retrofit2.Response;
@@ -22,7 +22,7 @@ import retrofit2.Response;
 
 public class LoginActivity extends AppCompatActivity implements View.OnClickListener {
     private AppCompatEditText usernameField, passwordField;
-    private LinearLayoutCompat signInButton, facebookButton, twitterButton;
+    private LinearLayoutCompat signInButton;
     private AppCompatTextView forgotButton, signUpButton;
     private ProgressDialog pDialog;
     private SharedPreferences sharedPreferences;
@@ -38,8 +38,7 @@ public class LoginActivity extends AppCompatActivity implements View.OnClickList
         usernameField = (AppCompatEditText) findViewById(R.id.username);
         passwordField = (AppCompatEditText) findViewById(R.id.password);
         signInButton = (LinearLayoutCompat) findViewById(R.id.signInButton);
-        facebookButton = (LinearLayoutCompat) findViewById(R.id.facebookButton);
-        twitterButton = (LinearLayoutCompat) findViewById(R.id.twitterButton);
+
 
         forgotButton = (AppCompatTextView) findViewById(R.id.forgotPassword);
         signUpButton = (AppCompatTextView) findViewById(R.id.signUpButton);
@@ -50,8 +49,6 @@ public class LoginActivity extends AppCompatActivity implements View.OnClickList
 
         //Register events, such as button pressed
         signInButton.setOnClickListener(this);
-        facebookButton.setOnClickListener(this);
-        twitterButton.setOnClickListener(this);
         forgotButton.setOnClickListener(this);
         signUpButton.setOnClickListener(this);
     }
@@ -68,11 +65,7 @@ public class LoginActivity extends AppCompatActivity implements View.OnClickList
         if (v.getId() == R.id.signInButton) {
             if(validateUserInput())
                 defaultLogin();
-        } else if (v.getId() == R.id.facebookButton) {
-            facebookLogin();
-        } else if (v.getId() == R.id.twitterButton) {
-            twitterLogin();
-        } else if (v.getId() == R.id.forgotPassword) {
+        }else if (v.getId() == R.id.forgotPassword) {
             startActivity(new Intent(LoginActivity.this, ForgotPasswordActivity.class));
         } else if (v.getId() == R.id.signUpButton) {
             startActivity(new Intent(LoginActivity.this, SignUpActivity.class));
@@ -149,17 +142,5 @@ public class LoginActivity extends AppCompatActivity implements View.OnClickList
         });
     }
 
-    /**
-     * This method is called and all facebook login job is done within this method
-     */
-    private void facebookLogin() {
 
-    }
-
-    /**
-     * This method is called and all twitter login job is done within this method
-     */
-    private void twitterLogin() {
-
-    }
 }

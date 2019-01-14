@@ -16,7 +16,7 @@ import android.widget.TextView;
 import com.as.AdFitness.DashboardActivity;
 import com.as.AdFitness.R;
 import com.as.AdFitness.pojo.Explore;
-import com.as.AdFitness.utility.ExploreAdapter;
+import com.as.AdFitness.adapters.ExploreAdapter;
 
 import java.util.ArrayList;
 import java.util.List;

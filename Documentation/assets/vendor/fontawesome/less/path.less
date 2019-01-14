@@ -1,14 +1,21 @@
-/* FONT PATH
- * -------------------------- */
+package com.as.AdFitness.fragments;
 
-@font-face {
-  font-family: 'FontAwesome';
-  src: url('@{fa-font-path}/fontawesome-webfont.eot?v=@{fa-version}');
-  src: url('@{fa-font-path}/fontawesome-webfont.eot?#iefix&v=@{fa-version}') format('embedded-opentype'),
-    url('@{fa-font-path}/fontawesome-webfont.woff?v=@{fa-version}') format('woff'),
-    url('@{fa-font-path}/fontawesome-webfont.ttf?v=@{fa-version}') format('truetype'),
-    url('@{fa-font-path}/fontawesome-webfont.svg?v=@{fa-version}#fontawesomeregular') format('svg');
-//  src: url('@{fa-font-path}/FontAwesome.otf') format('opentype'); // used when developing fonts
-  font-weight: normal;
-  font-style: normal;
-}
+
+import android.content.Context;
+import android.graphics.Bitmap;
+import android.graphics.BitmapFactory;
+import android.os.Bundle;
+import android.support.v4.app.Fragment;
+import android.support.v7.widget.DefaultItemAnimator;
+import android.support.v7.widget.LinearLayoutManager;
+import android.support.v7.widget.RecyclerView;
+import android.view.LayoutInflater;
+import android.view.View;
+import android.view.ViewGroup;
+import android.widget.ImageView;
+import android.widget.TextView;
+
+import com.as.AdFitness.DashboardActivity;
+import com.as.AdFitness.R;
+import com.as.AdFitness.pojo.Explore;
+import com.as.AdFitness.adapter.ExploreAdapter;

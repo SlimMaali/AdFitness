@@ -12,21 +12,16 @@ import android.support.v7.widget.AppCompatEditText;
 import android.support.v7.widget.LinearLayoutCompat;
 import android.text.InputType;
 import android.text.TextUtils;
-import android.util.Log;
 import android.util.Patterns;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
-import android.widget.CompoundButton;
 import android.widget.DatePicker;
-import android.widget.RadioButton;
-import android.widget.TextView;
 import android.widget.Toast;
 
-import com.as.AdFitness.pojo.DataHolder;
-import com.as.AdFitness.pojo.User;
+import com.as.AdFitness.entities.User;
 import com.as.AdFitness.utility.Api;
-import com.as.AdFitness.utility.UserService;
+import com.as.AdFitness.service.UserService;
 
 import java.util.Calendar;
 

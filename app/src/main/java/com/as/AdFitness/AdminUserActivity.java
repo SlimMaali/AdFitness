@@ -4,8 +4,8 @@ import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.widget.ListView;
 
-import com.as.AdFitness.pojo.User;
-import com.as.AdFitness.utility.CoachAdapter;
+import com.as.AdFitness.entities.User;
+import com.as.AdFitness.adapters.CoachAdapter;
 
 import java.util.ArrayList;
 

@@ -58,6 +58,12 @@ api_participation_remove:
 api_my_participation:
     path:     /myParticipation/{user}
     defaults: { _controller: AppBundle:Participation:myParticipation }
+api_my_participation_count:
+    path:     /myParticipationCount/{user}
+    defaults: { _controller: AppBundle:Participation:myParticipationCount }
+api_profile_add:
+    path:     /profile/{user_id}/{gender}/{weight}/{height}/{image}
+    defaults: { _controller: AppBundle:Profile:add }
 api_profile_read:
     path:     /profile/{id}
     defaults: { _controller: AppBundle:Profile:read }

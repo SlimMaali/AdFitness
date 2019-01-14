@@ -1,9 +1,7 @@
 package com.as.AdFitness.fragments;
 
 
-import android.app.ProgressDialog;
 import android.content.Context;
-import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
@@ -14,16 +12,11 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
-import com.as.AdFitness.DashboardActivity;
-import com.as.AdFitness.LoginActivity;
 import com.as.AdFitness.R;
-import com.as.AdFitness.pojo.Session;
-import com.as.AdFitness.pojo.User;
+import com.as.AdFitness.entities.Session;
 import com.as.AdFitness.utility.Api;
-import com.as.AdFitness.utility.ParticipationService;
-import com.as.AdFitness.utility.SessionAdapter;
-import com.as.AdFitness.utility.SessionService;
-import com.as.AdFitness.utility.SessionSubAdapter;
+import com.as.AdFitness.service.ParticipationService;
+import com.as.AdFitness.adapters.SessionSubAdapter;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -36,6 +29,7 @@ import retrofit2.Response;
  * A simple {@link Fragment} subclass.
  */
 public class MyCoursesFragment extends Fragment {
+
     private RecyclerView recyclerView;
     private SessionSubAdapter adapter;
     private SharedPreferences sharedPreferences;

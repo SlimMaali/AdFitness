@@ -28,75 +28,75 @@
         <android.support.v7.widget.LinearLayoutCompat
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:padding="10dp"
-            android:orientation="vertical">
+            android:orientation="vertical"
+            android:padding="10dp">
 
             <android.support.v7.widget.AppCompatTextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:textColor="@color/seek_orange"
                 android:layout_gravity="center"
-                android:textStyle="bold"
-                android:text="Carbohydrate"/>
+                android:text="Carbohydrate"
+                android:textColor="@color/seek_orange"
+                android:textStyle="bold" />
 
             <android.support.v7.widget.AppCompatSeekBar
                 android:id="@+id/seekBar"
-                android:layout_marginTop="5dp"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:splitTrack="false"
-                android:minHeight="5dp"
-                android:minWidth="5dp"
-                android:maxHeight="10dp"
+                android:layout_marginTop="5dp"
                 android:maxWidth="10dp"
+                android:maxHeight="10dp"
+                android:minWidth="5dp"
+                android:minHeight="5dp"
                 android:progress="80"
-                android:thumb="@drawable/orange_seekbar_thumb"
-                android:progressDrawable="@drawable/orange_seekbar_style"/>
+                android:progressDrawable="@drawable/orange_seekbar_style"
+                android:splitTrack="false"
+                android:thumb="@drawable/orange_seekbar_thumb" />
 
             <android.support.v7.widget.AppCompatTextView
-                android:layout_marginTop="20dp"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:textColor="@color/seek_green"
-                android:textStyle="bold"
                 android:layout_gravity="center"
-                android:text="Fats"/>
+                android:layout_marginTop="20dp"
+                android:text="Fats"
+                android:textColor="@color/seek_green"
+                android:textStyle="bold" />
 
             <android.support.v7.widget.AppCompatSeekBar
                 android:id="@+id/seekBar2"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="5dp"
-                android:splitTrack="false"
-                android:minHeight="5dp"
-                android:minWidth="5dp"
-                android:maxHeight="10dp"
                 android:maxWidth="10dp"
+                android:maxHeight="10dp"
+                android:minWidth="5dp"
+                android:minHeight="5dp"
                 android:progress="60"
-                android:thumb="@drawable/green_seekbar_thumb"
-                android:progressDrawable="@drawable/green_seekbar_style"/>
+                android:progressDrawable="@drawable/green_seekbar_style"
+                android:splitTrack="false"
+                android:thumb="@drawable/green_seekbar_thumb" />
 
             <android.support.v7.widget.AppCompatTextView
-                android:layout_marginTop="20dp"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_gravity="center"
-                android:textStyle="bold"
+                android:layout_marginTop="20dp"
+                android:text="Protein"
                 android:textColor="@color/seek_blue"
-                android:text="Protein"/>
+                android:textStyle="bold" />
 
             <android.support.v7.widget.AppCompatSeekBar
-                android:layout_marginTop="5dp"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:splitTrack="false"
-                android:minHeight="5dp"
-                android:minWidth="5dp"
-                android:maxHeight="10dp"
+                android:layout_marginTop="5dp"
                 android:maxWidth="10dp"
+                android:maxHeight="10dp"
+                android:minWidth="5dp"
+                android:minHeight="5dp"
                 android:progress="40"
-                android:thumb="@drawable/blue_seekbar_thumb"
-                android:progressDrawable="@drawable/blue_seekbar_style" />
+                android:progressDrawable="@drawable/blue_seekbar_style"
+                android:splitTrack="false"
+                android:thumb="@drawable/blue_seekbar_thumb" />
 
         </android.support.v7.widget.LinearLayoutCompat>
 

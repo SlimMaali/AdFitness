@@ -1,7 +1,6 @@
 package com.as.AdFitness.fragments;
 
 import android.content.Context;
-import android.net.Uri;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.view.LayoutInflater;
@@ -12,13 +11,11 @@ import android.widget.ListView;
 
 import com.as.AdFitness.DashboardActivity;
 import com.as.AdFitness.R;
-import com.as.AdFitness.pojo.Profile;
-import com.as.AdFitness.pojo.User;
+import com.as.AdFitness.entities.Profile;
+import com.as.AdFitness.entities.User;
 import com.as.AdFitness.utility.Api;
-import com.as.AdFitness.utility.CoachAdapter;
-import com.as.AdFitness.utility.ExploreSlidePagerAdapter;
-import com.as.AdFitness.utility.ProfileService;
-import com.as.AdFitness.utility.UserService;
+import com.as.AdFitness.adapters.CoachAdapter;
+import com.as.AdFitness.service.ProfileService;
 
 import java.util.ArrayList;
 
@@ -58,11 +55,13 @@ public class CoachExploreFragment extends Fragment {
                         Bundle b = new Bundle();
                         b.putParcelable("profile",p);
                         CSF.setArguments(b);
-                            getFragmentManager().beginTransaction()
-                                    .replace(v.findViewById(R.id.container_coach).getId()
-                                            , CSF)
-                                    .addToBackStack(null)
-                                    .commit();
+                        CSF.show(getFragmentManager(),"frag");
+
+                      /* getChildFragmentManager().beginTransaction()
+                                .replace(v.findViewById(R.id.container_coach).getId(), CSF)
+                                .addToBackStack(null)
+                                .commit();*/
+
                     }
                     @Override
                     public void onFailure(Call<Profile> call, Throwable t) {
