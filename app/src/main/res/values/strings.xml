@@ -17,6 +17,8 @@
     <string name="firstName_hint"> Nom</string>
     <string name="lastName_hint"> Prénom </string>
     <string name="phone_hint"> Numéro de téléphone</string>
+    <string name="weight_hint">Poids</string>
+    <string name="height_hint">Taille</string>
     <string name="birthday_hint"> Date de naissance </string>
     <string name="sign_in_with_facebook">Connectez-vous avec Facebook</string>
     <string name="sign_in_with_twitter">Connectez-vous avec Twitter</string>

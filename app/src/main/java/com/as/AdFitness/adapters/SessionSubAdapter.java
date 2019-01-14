@@ -50,7 +50,6 @@ public class SessionSubAdapter extends RecyclerView.Adapter<SessionSubAdapter.Se
         holder.sessionTime.setText(Session.getDate().substring(11));
         holder.sessionCurrentNb.setText(String.valueOf(Session.getCurrentNb()));
         holder.sessionMaxNb.setText("/ "+String.valueOf(Session.getMaxNb()));
-        holder.sessionImage.setImageResource(R.drawable.rpm_img);
         holder.sessionSubBtn.setText("Se Désabonner");
         holder.sessionSubBtn.setOnClickListener(new View.OnClickListener() {
             @Override

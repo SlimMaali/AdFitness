@@ -25,6 +25,7 @@ import android.view.MenuItem;
 import android.view.View;
 import android.widget.ImageView;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.as.AdFitness.fragments.CoachyFragment;
 import com.as.AdFitness.fragments.OurClubFragment;
@@ -208,12 +209,13 @@ public class DashboardActivity extends AppCompatActivity implements NavigationVi
                 if( !searchView.isIconified() ) {
                     searchView.setIconified(true);
                 }
-                //searchView.onActionViewCollapsed();
+                searchView.onActionViewCollapsed();
                 return false;
             }
             @Override
             public boolean onQueryTextChange(String s) {
-                //Toast.makeText(DashboardActivity.this, "Query Changed: "+s, Toast.LENGTH_LONG).show();
+
+                Toast.makeText(DashboardActivity.this, "Query Changed: "+s, Toast.LENGTH_LONG).show();
                 return false;
             }
         });

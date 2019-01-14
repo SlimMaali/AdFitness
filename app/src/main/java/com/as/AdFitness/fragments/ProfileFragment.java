@@ -33,11 +33,19 @@ public class ProfileFragment extends Fragment {
         View view =  inflater.inflate(R.layout.fragment_profile, container, false);
         Profile P = (Profile)getArguments().getParcelable("profile");
         TextView nameField = (TextView)view.findViewById(R.id.user_name_profile);
-        TextView descriptionField = (TextView)view.findViewById(R.id.user_description_profile);
         ImageView imageField = (ImageView)view.findViewById(R.id.user_img_profile);
+        TextView birthdayField = (TextView)view.findViewById(R.id.user_birthday_profile);
+        TextView phoneField = (TextView)view.findViewById(R.id.user_phone_profile);
+        TextView weightField = (TextView)view.findViewById(R.id.user_weight_profile);
+        TextView heightField = (TextView)view.findViewById(R.id.user_height_profile);
+
         nameField.setText(P.getUser().getFirstName()+" "+P.getUser().getLastName());
-        descriptionField.setText(P.getUser().getBirthday()+" "+P.getUser().getPhone());
         Picasso.with(getContext()).load(P.getImage()).into(imageField);
+        birthdayField.setText(P.getUser().getBirthday());
+        phoneField.setText(P.getUser().getPhone());
+        weightField.setText(Float.toString(P.getWeight())+" KG");
+        heightField.setText(Float.toString(P.getHeight())+" M");
+
         return view;
     }
     @Override

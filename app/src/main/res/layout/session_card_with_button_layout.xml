@@ -18,7 +18,8 @@
                 android:layout_width="match_parent"
                 android:layout_height="180dp"
                 android:contentDescription="TODO"  android:scaleType="centerCrop"
-                android:src="@drawable/recipe_3"/>
+                android:src="@drawable/session_background"/>
+
             <LinearLayout
                 android:padding="5dp"
                 android:layout_width="wrap_content"
@@ -46,11 +47,14 @@
                     android:layout_gravity="center"
                     android:text="100"
                     android:textColor="@color/white" />
+
                 <ImageView
-                    android:layout_width="20dp"
+                    android:layout_width="18dp"
                     android:layout_height="20dp"
                     android:layout_gravity="center"
-                    android:contentDescription="TODO" android:src="@drawable/workout"/>
+                    android:paddingLeft="5dp"
+                    android:contentDescription="TODO"
+                    android:src="@drawable/workout" />
 
             </LinearLayout>
             <android.support.v7.widget.LinearLayoutCompat

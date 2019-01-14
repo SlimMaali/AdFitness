@@ -51,7 +51,6 @@ public class SessionAdapter extends RecyclerView.Adapter<SessionAdapter.SessionV
         holder.sessionTime.setText(Session.getDate().substring(11));
         holder.sessionCurrentNb.setText(String.valueOf(Session.getCurrentNb()));
         holder.sessionMaxNb.setText("/ "+String.valueOf(Session.getMaxNb()));
-        holder.sessionImage.setImageResource(R.drawable.rpm_img);
         ParticipationService Ps = Api.getInstance().getParticipationService();
         Call<ArrayList<Session>> call = Ps.mySubs(userid);
         call.enqueue(new Callback<ArrayList<Session>>() {
