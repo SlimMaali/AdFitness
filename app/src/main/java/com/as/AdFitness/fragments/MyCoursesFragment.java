@@ -11,6 +11,7 @@ import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Toast;
 
 import com.as.AdFitness.R;
 import com.as.AdFitness.entities.Session;
@@ -44,7 +45,7 @@ public class MyCoursesFragment extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
-        View view = inflater.inflate(R.layout.fragment_my_courses, container, false);
+        final View view = inflater.inflate(R.layout.fragment_my_courses, container, false);
         sharedPreferences = getActivity().getSharedPreferences("AdFitness",Context.MODE_PRIVATE);
 
         userId = sharedPreferences.getInt("id",0);
@@ -68,6 +69,7 @@ public class MyCoursesFragment extends Fragment {
             @Override
             public void onFailure(Call<ArrayList<Session>> call, Throwable t) {
                 Log.d("Anas", t.getMessage());
+                Toast.makeText(view.getContext(), "Vous devez d'abord vous inscrire a nos cours", Toast.LENGTH_LONG).show();
 
             }
         });

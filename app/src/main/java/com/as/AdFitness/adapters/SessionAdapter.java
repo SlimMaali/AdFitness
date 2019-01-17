@@ -57,7 +57,6 @@ public class SessionAdapter extends RecyclerView.Adapter<SessionAdapter.SessionV
             @Override
             public void onResponse(Call<ArrayList<Session>> call, Response<ArrayList<Session>> response) {
                 ArrayList<Session> list = response.body();
-                Log.e("ee","Once");
                     if(list.contains(Session))
                     {
                         holder.sessionSubBtn.setText("Se Désabonner");

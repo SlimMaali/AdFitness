@@ -97,7 +97,7 @@ public class Profile implements Parcelable {
     }
     public void readFromParcel(Parcel in) {
         id = in.readInt();
-        user = in.readParcelable(ClassLoader.getSystemClassLoader());
+        user = in.readParcelable(getClass().getClassLoader());
         gender = in.readString();
         weight = in.readFloat();
         height = in.readFloat();

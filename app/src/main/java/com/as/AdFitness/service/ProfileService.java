@@ -15,13 +15,7 @@ public interface ProfileService {
     //Get Profile
     @GET("profile/{id}")
     Call<Profile> getProfile(@Path("id") int id);
-    /*@Multipart
-    @POST("profile/{user_id}/{gender}/{weight}/{height}")
-    Call<ResponseBody> AddProfile(
-            @Part("user_id") RequestBody user_id,
-            @Part("gender") RequestBody gender,
-            @Part("weight") RequestBody weight,
-            @Part("height") RequestBody height,
-            @Part MultipartBody.Part image
-    );*/
+    @GET("profileUpdate/{id}/{gender}/{weight}/{height}")
+    Call<Profile> updateProfile(@Path("id") int id,@Path("gender") String gender,
+                             @Path("weight") float weight,@Path("height") float height);
 }

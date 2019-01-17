@@ -36,16 +36,16 @@
 
 
             <com.mikhaellopez.circularimageview.CircularImageView
-                android:id="@+id/imageIv_new_profile"
+                android:id="@+id/image_Edit_profile"
                 android:layout_width="200dp"
                 android:layout_height="200dp"
                 android:src="@drawable/avatar"
                 app:civ_border_color="@color/colorPrimary"
                 app:civ_border_width="10dp"
-            />
+                />
 
             <android.support.v7.widget.LinearLayoutCompat
-                android:id="@+id/pickImageBtn_new_profile"
+                android:id="@+id/pickImageBtn_Edit_profile"
                 android:layout_gravity="center"
                 android:layout_marginTop="5dp"
                 android:layout_width="wrap_content"
@@ -63,7 +63,7 @@
             </android.support.v7.widget.LinearLayoutCompat>
 
 
-    </android.support.v7.widget.LinearLayoutCompat>
+        </android.support.v7.widget.LinearLayoutCompat>
 
         <android.support.v7.widget.LinearLayoutCompat
             android:layout_width="match_parent"
@@ -115,7 +115,7 @@
                 android:textStyle="bold" />
 
             <android.support.v7.widget.AppCompatSeekBar
-                android:id="@+id/poids_seekBar_new_profile"
+                android:id="@+id/poids_seekBar_Edit_profile"
                 android:layout_width="0dp"
                 android:layout_height="match_parent"
                 android:layout_weight="3"
@@ -131,7 +131,7 @@
                 android:splitTrack="false"
                 android:thumb="@drawable/orange_seekbar_thumb" />
             <android.support.v7.widget.AppCompatTextView
-                android:id="@+id/poids_tv_new_profile"
+                android:id="@+id/poids_tv_Edit_profile"
                 android:layout_width="0dp"
                 android:layout_height="match_parent"
                 android:layout_weight="1"
@@ -155,7 +155,7 @@
                 android:textStyle="bold" />
 
             <android.support.v7.widget.AppCompatSeekBar
-                android:id="@+id/tailleM_seekBar_new_profile"
+                android:id="@+id/tailleM_seekBar_Edit_profile"
                 android:layout_width="0dp"
                 android:layout_height="match_parent"
                 android:layout_weight="2"
@@ -171,7 +171,7 @@
                 android:splitTrack="false"
                 android:thumb="@drawable/blue_seekbar_thumb" />
             <android.support.v7.widget.AppCompatSeekBar
-                android:id="@+id/tailleCM_seekBar_new_profile"
+                android:id="@+id/tailleCM_seekBar_Edit_profile"
                 android:layout_width="0dp"
                 android:layout_height="match_parent"
                 android:layout_weight="2"
@@ -187,7 +187,7 @@
                 android:splitTrack="false"
                 android:thumb="@drawable/blue_seekbar_thumb" />
             <android.support.v7.widget.AppCompatTextView
-                android:id="@+id/taille_tv_new_profile"
+                android:id="@+id/taille_tv_Edit_profile"
                 android:layout_width="0dp"
                 android:layout_height="match_parent"
                 android:text="1.5 M"
@@ -200,7 +200,7 @@
 
 
         <android.support.v7.widget.LinearLayoutCompat
-            android:id="@+id/validateBtn_new_profile"
+            android:id="@+id/validateBtn_Edit_profile"
             android:layout_marginTop="10dp"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"

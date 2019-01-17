@@ -1,3 +1,5 @@
+
+
 <android.support.v4.widget.NestedScrollView xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
@@ -5,12 +7,15 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     tools:context="com.as.AdFitness.fragments.ProfileFragment">
 
+
+
     <android.support.v7.widget.LinearLayoutCompat
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:orientation="vertical">
 
-        <ImageView
+
+    <ImageView
             android:layout_width="match_parent"
             android:layout_height="150dp"
             android:contentDescription="TODO" android:scaleType="centerCrop"
@@ -23,12 +28,12 @@
             android:layout_height="150dp"
             android:src="@drawable/avatar"
             app:civ_border_color="@color/colorPrimary"
-            app:civ_border_width="10dp"
+            app:civ_border_width="8dp"
             android:layout_gravity="center"
             android:layout_marginTop="-50dp" />
 
         <android.support.v7.widget.LinearLayoutCompat
-            android:background="@color/white"
+            android:background="@drawable/rounded_gray_box"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_margin="10dp"
@@ -57,7 +62,8 @@
                        android:layout_width="wrap_content"
                        android:layout_height="wrap_content"
                        android:layout_gravity="center_vertical"
-                       android:src="@drawable/birthday"/>
+                       android:src="@drawable/birthday"
+                       android:tint="@color/colorPrimary"/>
 
                     <android.support.v7.widget.AppCompatTextView
                         android:id="@+id/user_birthday_profile"
@@ -74,19 +80,20 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_gravity="center_vertical"
-                        android:src="@drawable/phone"/>
+                        android:src="@drawable/phone"
+                        android:tint="@color/colorPrimary"/>
 
 
-                    <android.support.v7.widget.AppCompatTextView
-                        android:id="@+id/user_phone_profile"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_gravity="center"
-                        android:gravity="center"
-                        android:padding="10dp"
-                        android:text="@string/birthday_hint"
-                        android:textColor="@color/colorPrimary"
-                        android:textStyle="bold" />
+                <android.support.v7.widget.AppCompatTextView
+                    android:id="@+id/user_phone_profile"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:gravity="center"
+                    android:padding="10dp"
+                    android:text="@string/phone_hint"
+                    android:textColor="@color/colorPrimary"
+                    android:textStyle="bold" />
 
 
             </android.support.v7.widget.LinearLayoutCompat>
@@ -110,8 +117,8 @@
                         android:id="@+id/user_weight_profile"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:layout_gravity="center"
-                        android:gravity="center"
+                    android:layout_gravity="center"
+                    android:gravity="center"
                         android:padding="10dp"
                         android:text="@string/weight_hint"
                         android:textColor="@color/colorPrimary"
@@ -127,9 +134,9 @@
                         android:id="@+id/user_height_profile"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
+                        android:padding="10dp"
                         android:layout_gravity="center"
                         android:gravity="center"
-                        android:padding="10dp"
                         android:text="@string/height_hint"
                         android:textAllCaps="true"
                         android:textColor="@color/colorPrimary"
@@ -137,6 +144,51 @@
 
 
 
+            </android.support.v7.widget.LinearLayoutCompat>
+
+            <android.support.v7.widget.LinearLayoutCompat
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="center_horizontal"
+                android:orientation="vertical">
+
+                <android.support.v7.widget.AppCompatTextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:gravity="center"
+                    android:padding="10dp"
+                    android:text="@string/BMI_hint"
+                    android:textAllCaps="true"
+                    android:textColor="@color/colorPrimary"
+                    android:textStyle="bold" />
+
+                <android.support.v7.widget.AppCompatTextView
+                android:id="@+id/user_BMI_profile"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:gravity="center"
+                android:padding="10dp"
+                android:text="@string/BMI_default"
+                android:textAllCaps="true"
+                android:textSize="24sp"
+                android:textColor="@color/seek_blue"
+                android:textStyle="bold" />
+
+
+                <android.support.v7.widget.AppCompatTextView
+                    android:id="@+id/user_BMI_TexT_profile"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:gravity="center"
+                    android:padding="10dp"
+                    android:text="@string/BMI_NormalWeight"
+                    android:textAllCaps="true"
+                    android:textSize="18sp"
+                    android:textColor="@color/colorPrimary"
+                    android:textStyle="bold" />
             </android.support.v7.widget.LinearLayoutCompat>
 
 
@@ -148,7 +200,7 @@
             android:layout_height="75dp"
             android:src="@drawable/male"
             app:civ_border_color="@color/colorPrimary"
-            app:civ_border_width="2dp"
+            app:civ_border_width="5dp"
             android:layout_gravity="center"
             android:layout_marginTop="-30dp"
             />

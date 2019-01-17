@@ -18,6 +18,7 @@ import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.LinearLayoutCompat;
 import android.support.v7.widget.SearchView;
 import android.support.v7.widget.Toolbar;
+import android.util.Log;
 import android.view.Menu;
 import android.view.MenuInflater;
 import android.view.MenuItem;
@@ -49,15 +50,15 @@ public class DashboardActivity extends AppCompatActivity implements NavigationVi
     private NavigationView navigationView;
     private SharedPreferences sharedPreferences;
     private SharedPreferences.Editor editor;
+    private final ProfileService Ps=Api.getInstance().getProfileService();;
     private static User loggedUser ;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_dashboard);
 
-        Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
+        final Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
-
         //Don't add another fragment on top of what we already had
         if (savedInstanceState != null) {
             return;
@@ -73,8 +74,6 @@ public class DashboardActivity extends AppCompatActivity implements NavigationVi
         final TextView tvWeight = (TextView) navigationView.getHeaderView(0).findViewById(R.id.tvWeight_drawer_header);
         final TextView tvHeight = (TextView) navigationView.getHeaderView(0).findViewById(R.id.tvHeight_drawer_header);
         LinearLayoutCompat LL = (LinearLayoutCompat) navigationView.getHeaderView(0).findViewById(R.id.User_drawer_header);
-        final ProfileService Ps = Api.getInstance().getProfileService();
-
 
         tv.setText(loggedUser.getLastName()+" "+loggedUser.getFirstName());
 
@@ -82,7 +81,6 @@ public class DashboardActivity extends AppCompatActivity implements NavigationVi
         call.enqueue(new Callback<Profile>() {
             @Override
             public void onResponse(Call<Profile> call, Response<Profile> response) {
-                //Log.e("res",response.body().toString());
                 if(response.body().getUser()==null)
                 {
                     Intent profileIn;
@@ -94,8 +92,12 @@ public class DashboardActivity extends AppCompatActivity implements NavigationVi
                 else {
                     Profile p = response.body();
                     Picasso.with(getApplicationContext()).load(p.getImage()).into(iv);
-                    tvWeight.setText(p.getWeight()+" KG");
-                    tvHeight.setText(p.getHeight()+" M");
+                    int HeightCm = (int)(p.getHeight()*100);
+                    String Weight=Float.toString(p.getWeight());
+                    if(Weight.endsWith(".0"))
+                        Weight = Weight.replace(".0" , "");
+                    tvWeight.setText(Weight+" KG");
+                    tvHeight.setText(HeightCm+" CM");
                 }
             }
 
@@ -148,7 +150,7 @@ public class DashboardActivity extends AppCompatActivity implements NavigationVi
                             b.putParcelable("profile",response.body());
                             p.setArguments(b);
                             replaceFragment(p);
-                            getSupportActionBar().setTitle(response.body().getUser().getFirstName()+" "+response.body().getUser().getLastName());
+                            getSupportActionBar().setTitle(response.body().getUser().getFirstName().toUpperCase()+" "+response.body().getUser().getLastName().toUpperCase());
                             drawerLayout.closeDrawer(GravityCompat.START);
                         }
                     }
@@ -192,37 +194,21 @@ public class DashboardActivity extends AppCompatActivity implements NavigationVi
         }
         finish();
     }
-/*
+
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
         MenuInflater inflater = getMenuInflater();
         inflater.inflate(R.menu.menu_dashboard, menu);
+        MenuItem editItem = menu.findItem(R.id.edit_button);
 
-        // Associate searchable configuration with the SearchView
-        final SearchManager searchManager = (SearchManager) getSystemService(Context.SEARCH_SERVICE);
-        final SearchView searchView = (SearchView) menu.findItem(R.id.search).getActionView();
-        searchView.setSearchableInfo(searchManager.getSearchableInfo(getComponentName()));
-
-        searchView.setOnQueryTextListener(new SearchView.OnQueryTextListener() {
-            @Override
-            public boolean onQueryTextSubmit(String query) {
-                if( !searchView.isIconified() ) {
-                    searchView.setIconified(true);
-                }
-                searchView.onActionViewCollapsed();
-                return false;
-            }
-            @Override
-            public boolean onQueryTextChange(String s) {
-
-                Toast.makeText(DashboardActivity.this, "Query Changed: "+s, Toast.LENGTH_LONG).show();
-                return false;
-            }
-        });
+        Fragment currentFrag = getSupportFragmentManager().findFragmentById(R.id.container);
+        if(currentFrag.getClass().equals(ProfileFragment.class))
+            editItem.setVisible(true);
+                else editItem.setVisible(false);
 
         return true;
     }
-*/
+
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
         // Handle action bar item clicks here. The action bar will
@@ -231,7 +217,31 @@ public class DashboardActivity extends AppCompatActivity implements NavigationVi
         int id = item.getItemId();
         if (drawerToggle.onOptionsItemSelected(item)) {
             return true;
+        }else if(id == R.id.edit_button)
+        {
+            Call<Profile> call = Ps.getProfile(loggedUser.getId());
+            call.enqueue(new Callback<Profile>() {
+                @Override
+                public void onResponse(Call<Profile> call, Response<Profile> response) {
+                    if(response.body().getUser()!=null)
+                    {
+                        Intent EditIn = new Intent(DashboardActivity.this,EditProfileActivity.class);
+                        EditIn.putExtra("profile",response.body());
+                        startActivity(EditIn);
+                        drawerLayout.closeDrawer(GravityCompat.START);
+                    }
+                }
+                @Override
+                public void onFailure(Call<Profile> call, Throwable t) {
+
+                }
+            });
+
+
+
+
         }
+        drawerLayout.closeDrawer(GravityCompat.START);
         return super.onOptionsItemSelected(item);
     }
 

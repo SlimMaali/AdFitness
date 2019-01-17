@@ -26,7 +26,20 @@ class ProfileController extends Controller
         $formated=$serializer->normalize("done");
         return new JsonResponse($formated);
     }
+    public function updateAction(Request $request)
+    {
 
+        $em = $this->getDoctrine()->getManager();
+        $profile= $em->getRepository('AppBundle:Profile')->find($request->get('id'));
+        $profile->setGender($request->get('gender'));
+        $profile->setHeight($request->get('height'));
+        $profile->setWeight($request->get('weight'));
+        $em->persist($profile);
+        $em->flush();
+        $serializer=new Serializer([new ObjectNormalizer()]);
+        $formated=$serializer->normalize($profile);
+        return new JsonResponse($formated);
+    }
 
     public function readAction(Request $request)
     {

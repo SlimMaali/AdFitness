@@ -48,4 +48,16 @@
     <string name="search_hint">Chercher</string>
     <string name="logout">Déconnexion</string>
 
+    <string name="BMI_hint">Votre IMC</string>
+    <string name="BMI_default">21</string>
+    <string name="BMI_VeryVeryUnderweight">Famine ou Dénutrition</string>
+    <string name="BMI_VeryUnderweight">Famine ou Dénutrition</string>
+    <string name="BMI_Underweight">Maigreur</string>
+    <string name="BMI_NormalWeight">Corpulence normale</string>
+    <string name="BMI_Overweight">surpoids</string>
+    <string name="BMI_ObesityI">obésité modérée</string>
+    <string name="BMI_ObesityII">obésité sévère</string>
+    <string name="BMI_ObesityIII">Obésite Morbide ou Massive</string>
+    <string name="title_activity_edit_profile">EditProfile</string>
+
 </resources>

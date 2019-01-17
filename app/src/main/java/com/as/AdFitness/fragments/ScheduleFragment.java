@@ -151,31 +151,7 @@ public class ScheduleFragment extends Fragment {
         }
     }
 
-    @Override
-    public void onCreateOptionsMenu(Menu menu, MenuInflater inflater) {
-        inflater.inflate(R.menu.menu_dashboard, menu);
-        // Associate searchable configuration with the SearchView
-        final SearchManager searchManager = (SearchManager) getActivity().getSystemService(Context.SEARCH_SERVICE);
-        final SearchView searchView = (SearchView) menu.findItem(R.id.search).getActionView();
-        searchView.setSearchableInfo(searchManager.getSearchableInfo(getActivity().getComponentName()));
 
-        searchView.setOnQueryTextListener(new SearchView.OnQueryTextListener() {
-            @Override
-            public boolean onQueryTextSubmit(String query) {
-                if( !searchView.isIconified() ) {
-                    searchView.setIconified(true);
-                }
-                searchView.onActionViewCollapsed();
-                return false;
-            }
-            @Override
-            public boolean onQueryTextChange(String s) {
-
-                Toast.makeText(getContext(), "Query Changed: "+s, Toast.LENGTH_LONG).show();
-                return false;
-            }
-        });
-    }
 
 
 

@@ -3,12 +3,21 @@
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
     android:orientation="horizontal"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:background="@drawable/rounded_orange_border">
 
-    <ImageView
+
+
+    <com.mikhaellopez.circularimageview.CircularImageView
         android:id="@+id/ivImg_item_coach"
-        android:layout_width="75dp"
-        android:layout_height="75dp" />
+        android:layout_width="60dp"
+        android:layout_height="60dp"
+        android:src="@drawable/avatar"
+        android:layout_gravity="center"
+        android:layout_margin="5dp"
+        app:civ_border_color="@color/colorPrimaryDark"
+        app:civ_border_width="2dp"
+        />
 
     <TextView
         android:id="@+id/tvName_item_coach"

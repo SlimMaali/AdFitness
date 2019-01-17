@@ -40,10 +40,11 @@
         <activity android:name=".ForgotPasswordActivity" />
         <activity android:name=".SignUpActivity" />
         <activity android:name=".NewProfileActivity" />
+        <activity android:name=".EditProfileActivity" />
         <activity
             android:name=".AdminHomeActivity"
             android:screenOrientation="landscape" />
-        <activity android:name=".AdminUserActivity"></activity>
+        <activity android:name=".AdminUserActivity" />
     </application>
 
 </manifest>
