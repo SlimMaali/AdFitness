@@ -1,6 +1,7 @@
 package com.as.AdFitness.utility;
 
 import com.as.AdFitness.service.ParticipationService;
+import com.as.AdFitness.service.PostService;
 import com.as.AdFitness.service.ProfileService;
 import com.as.AdFitness.service.RoomService;
 import com.as.AdFitness.service.SessionService;
@@ -19,6 +20,7 @@ public class Api {
     private SessionService sessionService;
     private ParticipationService participationService;
     private ProfileService profileService;
+    private PostService postService;
 
 
     public static Api getInstance() {
@@ -46,6 +48,7 @@ public class Api {
         this.sessionService = retrofit.create(SessionService.class);
         this.participationService = retrofit.create(ParticipationService.class);
         this.profileService = retrofit.create(ProfileService.class);
+        this.postService = retrofit.create(PostService.class);
         //others here
     }
 
@@ -56,4 +59,5 @@ public class Api {
     public SessionService getSessionService() { return sessionService; }
     public ParticipationService getParticipationService() { return this.participationService; }
     public ProfileService getProfileService() { return profileService; }
+    public PostService getPostService() {return postService; }
 }

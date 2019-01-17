@@ -13,7 +13,7 @@ class Post
     private $id;
 
     /**
-     * @var \DateTime
+     * @var string
      */
     private $date;
 
@@ -46,7 +46,7 @@ class Post
     /**
      * Set date
      *
-     * @param \DateTime $date
+     * @param string $date
      *
      * @return Post
      */
@@ -60,7 +60,7 @@ class Post
     /**
      * Get date
      *
-     * @return \DateTime
+     * @return string
      */
     public function getDate()
     {

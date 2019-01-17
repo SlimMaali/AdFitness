@@ -10,7 +10,9 @@ AppBundle\Entity\Post:
                 strategy: AUTO
     fields:
         date:
-            type: date
+            type: string
+            length: 255
+            column: Date
         title:
             type: string
             length: 255

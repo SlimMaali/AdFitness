@@ -15,7 +15,7 @@ class PostController extends Controller
     {
         $p = new Post();
         $em = $this->getDoctrine()->getManager();
-        $p->setDate(new \DateTime());
+        $p->setDate("11-01-1996");
         $p->setContent($request->get('Content'));
         $p->setImage($request->get('Image'));
         $p->setTitle($request->get('Title'));

@@ -18,7 +18,6 @@ import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.LinearLayoutCompat;
 import android.support.v7.widget.SearchView;
 import android.support.v7.widget.Toolbar;
-import android.util.Log;
 import android.view.Menu;
 import android.view.MenuInflater;
 import android.view.MenuItem;
@@ -27,17 +26,17 @@ import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.as.AdFitness.entities.Profile;
+import com.as.AdFitness.entities.User;
 import com.as.AdFitness.fragments.CoachyFragment;
-import com.as.AdFitness.fragments.OurClubFragment;
 import com.as.AdFitness.fragments.HomeFragment;
 import com.as.AdFitness.fragments.MyCoursesFragment;
+import com.as.AdFitness.fragments.OurClubFragment;
 import com.as.AdFitness.fragments.ProfileFragment;
 import com.as.AdFitness.fragments.ScheduleFragment;
 import com.as.AdFitness.fragments.ShopFragment;
-import com.as.AdFitness.entities.Profile;
-import com.as.AdFitness.entities.User;
-import com.as.AdFitness.utility.Api;
 import com.as.AdFitness.service.ProfileService;
+import com.as.AdFitness.utility.Api;
 import com.squareup.picasso.Picasso;
 
 import retrofit2.Call;
@@ -243,6 +242,7 @@ public class DashboardActivity extends AppCompatActivity implements NavigationVi
         navigationView.setCheckedItem(id);
         if (id == R.id.action_home) {
             fragment = new HomeFragment();
+
         } else if (id == R.id.action_our_club) {
             title = "Notre Club";
             fragment = new OurClubFragment();
@@ -254,6 +254,7 @@ public class DashboardActivity extends AppCompatActivity implements NavigationVi
             fragment = new MyCoursesFragment();
         } else if (id == R.id.action_live_training) {
             title = "Coachy Live";
+
             fragment = new CoachyFragment();
         } else if (id == R.id.action_setting) {
             title = "Settings";
