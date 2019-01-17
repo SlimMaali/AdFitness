@@ -5,16 +5,15 @@
     tools:context="com.as.AdFitness.fragments.CoachSingleFragment">
 
     <android.support.v7.widget.LinearLayoutCompat
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:background="@color/blackOverlay"
+        android:layout_width="300dp"
+        android:layout_height="wrap_content"
         android:orientation="vertical">
 
         <ImageView
             android:layout_width="match_parent"
             android:layout_height="220dp"
             android:contentDescription="TODO" android:scaleType="centerCrop"
-            android:background="@drawable/community"/>
+            android:background="@drawable/profile_bg"/>
 
         <ImageView
             android:id="@+id/coach_img_single"
@@ -24,26 +23,56 @@
             android:layout_marginTop="-50dp"
             android:layout_gravity="center"/>
 
-
-        <android.support.v7.widget.AppCompatTextView
-            android:id="@+id/coach_name_single"
-            android:layout_marginTop="10dp"
-            android:layout_width="wrap_content"
+        <android.support.v7.widget.LinearLayoutCompat
+            android:background="@color/white"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_gravity="center"
-            android:textStyle="bold"
-            android:textColor="@color/colorPrimaryDark"
-            android:text="Martha Harris"/>
-
-        <android.support.v7.widget.AppCompatTextView
-            android:id="@+id/coach_description_single"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
+            android:layout_margin="10dp"
             android:padding="10dp"
-            android:layout_gravity="center"
-            android:gravity="center"
-            android:textColor="@color/colorPrimaryDark"
-            android:text="@string/default_text"/>
+            android:orientation="vertical">
+
+            <android.support.v7.widget.AppCompatTextView
+                android:id="@+id/coach_name_single"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:layout_marginTop="10dp"
+                android:text="Martha Harris"
+                android:textColor="@color/colorPrimaryDark"
+                android:textSize="18sp"
+                android:textStyle="bold" />
+
+
+            <android.support.v7.widget.LinearLayoutCompat
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="center_horizontal"
+                android:orientation="horizontal">
+
+                    <android.support.v7.widget.AppCompatTextView
+                        android:id="@+id/coach_height_single"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center"
+                        android:padding="20dp"
+                        android:text="@string/weight_hint" />
+
+                    <android.support.v7.widget.AppCompatTextView
+                        android:id="@+id/coach_weight_single"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center"
+                        android:padding="20dp"
+                        android:text="@string/height_hint" />
+
+
+
+
+            </android.support.v7.widget.LinearLayoutCompat>
+
+
+        </android.support.v7.widget.LinearLayoutCompat>
+
     </android.support.v7.widget.LinearLayoutCompat>
 
 </android.support.v4.widget.NestedScrollView>

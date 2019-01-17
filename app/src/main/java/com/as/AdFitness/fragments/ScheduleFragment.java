@@ -1,6 +1,7 @@
 package com.as.AdFitness.fragments;
 
 
+import android.app.SearchManager;
 import android.content.Context;
 import android.os.Bundle;
 import android.support.design.widget.TabLayout;
@@ -8,10 +9,14 @@ import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentStatePagerAdapter;
 import android.support.v4.view.ViewPager;
+import android.support.v7.widget.SearchView;
 import android.util.Log;
 import android.view.LayoutInflater;
+import android.view.Menu;
+import android.view.MenuInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Toast;
 
 import com.as.AdFitness.DashboardActivity;
 import com.as.AdFitness.R;
@@ -144,6 +149,32 @@ public class ScheduleFragment extends Fragment {
         public CharSequence getPageTitle(int position) {
             return mFragmentTitleList.get(position);
         }
+    }
+
+    @Override
+    public void onCreateOptionsMenu(Menu menu, MenuInflater inflater) {
+        inflater.inflate(R.menu.menu_dashboard, menu);
+        // Associate searchable configuration with the SearchView
+        final SearchManager searchManager = (SearchManager) getActivity().getSystemService(Context.SEARCH_SERVICE);
+        final SearchView searchView = (SearchView) menu.findItem(R.id.search).getActionView();
+        searchView.setSearchableInfo(searchManager.getSearchableInfo(getActivity().getComponentName()));
+
+        searchView.setOnQueryTextListener(new SearchView.OnQueryTextListener() {
+            @Override
+            public boolean onQueryTextSubmit(String query) {
+                if( !searchView.isIconified() ) {
+                    searchView.setIconified(true);
+                }
+                searchView.onActionViewCollapsed();
+                return false;
+            }
+            @Override
+            public boolean onQueryTextChange(String s) {
+
+                Toast.makeText(getContext(), "Query Changed: "+s, Toast.LENGTH_LONG).show();
+                return false;
+            }
+        });
     }
 
 

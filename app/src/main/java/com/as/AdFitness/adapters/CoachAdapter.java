@@ -46,7 +46,9 @@ public class CoachAdapter extends ArrayAdapter<User> {
             public void onResponse(Call<Profile> call, Response<Profile> response) {
                 Profile p = response.body();
                 Log.e("Profile N ",p.toString());
-                Picasso.with(getContext()).load("http://10.0.2.2/AdFitness/uploads/user_image/"+p.getImage()+".png").into(ivImg);
+ //               Picasso.with(getContext()).load("http://10.0.2.2/AdFitness/uploads/user_image/"+p.getImage()+".png").into(ivImg);
+                Picasso.with(getContext()).load(p.getImage()).into(ivImg);
+
             }
             @Override
             public void onFailure(Call<Profile> call, Throwable t) {

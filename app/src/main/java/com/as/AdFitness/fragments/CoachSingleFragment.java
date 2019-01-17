@@ -33,11 +33,13 @@ public class CoachSingleFragment extends DialogFragment {
         Profile P = (Profile)getArguments().getParcelable("profile");
 
         TextView nameField = (TextView)view.findViewById(R.id.coach_name_single);
-        TextView descriptionField = (TextView)view.findViewById(R.id.coach_description_single);
+        TextView heightField = (TextView)view.findViewById(R.id.coach_height_single);
+        TextView weightField = (TextView)view.findViewById(R.id.coach_weight_single);
         ImageView imageField = (ImageView)view.findViewById(R.id.coach_img_single);
+        Picasso.with(getContext()).load(P.getImage()).into(imageField);
         nameField.setText(P.getUser().getFirstName()+" "+P.getUser().getLastName());
-        descriptionField.setText(P.getUser().getBirthday()+" "+P.getUser().getPhone());
-        Picasso.with(getContext()).load("http://10.0.2.2/AdFitness/uploads/user_image/"+P.getImage()+".png").into(imageField);
+        heightField.setText(Float.toString(P.getHeight())+" M");
+        weightField.setText(Float.toString(P.getWeight())+" KG");
         getDialog().setTitle(P.getUser().getFirstName()+" "+P.getUser().getLastName());
         return view;
     }

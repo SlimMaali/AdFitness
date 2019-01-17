@@ -12,7 +12,7 @@
 
         <ImageView
             android:layout_width="match_parent"
-            android:layout_height="220dp"
+            android:layout_height="150dp"
             android:contentDescription="TODO" android:scaleType="centerCrop"
             android:background="@drawable/profile_bg"/>
 
@@ -25,8 +25,7 @@
             app:civ_border_color="@color/colorPrimary"
             app:civ_border_width="10dp"
             android:layout_gravity="center"
-            android:layout_marginTop="-50dp"
-            />
+            android:layout_marginTop="-50dp" />
 
         <android.support.v7.widget.LinearLayoutCompat
             android:background="@color/white"
@@ -54,18 +53,11 @@
                 android:gravity="center_horizontal"
                 android:orientation="horizontal">
 
-                <android.support.v7.widget.LinearLayoutCompat
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:orientation="vertical">
-
-                    <android.support.v7.widget.AppCompatTextView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_gravity="center"
-                        android:gravity="center"
-                        android:padding="10dp"
-                        android:text="@string/birthday_hint" />
+                   <ImageView
+                       android:layout_width="wrap_content"
+                       android:layout_height="wrap_content"
+                       android:layout_gravity="center_vertical"
+                       android:src="@drawable/birthday"/>
 
                     <android.support.v7.widget.AppCompatTextView
                         android:id="@+id/user_birthday_profile"
@@ -77,20 +69,13 @@
                         android:text="@string/birthday_hint"
                         android:textColor="@color/colorPrimary"
                         android:textStyle="bold" />
-                </android.support.v7.widget.LinearLayoutCompat>
 
-                <android.support.v7.widget.LinearLayoutCompat
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:orientation="vertical">
-
-                    <android.support.v7.widget.AppCompatTextView
+                    <ImageView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:layout_gravity="center"
-                        android:gravity="center"
-                        android:padding="10dp"
-                        android:text="@string/phone_hint" />
+                        android:layout_gravity="center_vertical"
+                        android:src="@drawable/phone"/>
+
 
                     <android.support.v7.widget.AppCompatTextView
                         android:id="@+id/user_phone_profile"
@@ -102,28 +87,26 @@
                         android:text="@string/birthday_hint"
                         android:textColor="@color/colorPrimary"
                         android:textStyle="bold" />
-                </android.support.v7.widget.LinearLayoutCompat>
+
+
             </android.support.v7.widget.LinearLayoutCompat>
+
+
             <android.support.v7.widget.LinearLayoutCompat
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:gravity="center_horizontal"
+                android:gravity="center"
                 android:orientation="horizontal">
 
-                <android.support.v7.widget.LinearLayoutCompat
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:orientation="vertical">
 
-                    <android.support.v7.widget.AppCompatTextView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_gravity="center"
-                        android:gravity="center"
-                        android:padding="10dp"
-                        android:text="@string/weight_hint" />
 
-                    <android.support.v7.widget.AppCompatTextView
+                <ImageView
+                    android:layout_width="20dp"
+                    android:layout_height="20dp"
+                    android:layout_gravity="center_vertical"
+                    android:background="@drawable/weight"/>
+
+                <android.support.v7.widget.AppCompatTextView
                         android:id="@+id/user_weight_profile"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
@@ -133,20 +116,12 @@
                         android:text="@string/weight_hint"
                         android:textColor="@color/colorPrimary"
                         android:textStyle="bold" />
-                </android.support.v7.widget.LinearLayoutCompat>
 
-                <android.support.v7.widget.LinearLayoutCompat
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:orientation="vertical">
-
-                    <android.support.v7.widget.AppCompatTextView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_gravity="center"
-                        android:gravity="center"
-                        android:padding="10dp"
-                        android:text="@string/height_hint" />
+                <ImageView
+                    android:layout_width="20dp"
+                    android:layout_height="20dp"
+                    android:layout_gravity="center_vertical"
+                    android:background="@drawable/height"/>
 
                     <android.support.v7.widget.AppCompatTextView
                         android:id="@+id/user_height_profile"
@@ -156,14 +131,27 @@
                         android:gravity="center"
                         android:padding="10dp"
                         android:text="@string/height_hint"
+                        android:textAllCaps="true"
                         android:textColor="@color/colorPrimary"
                         android:textStyle="bold" />
-                </android.support.v7.widget.LinearLayoutCompat>
+
+
+
             </android.support.v7.widget.LinearLayoutCompat>
 
 
         </android.support.v7.widget.LinearLayoutCompat>
 
+        <com.mikhaellopez.circularimageview.CircularImageView
+            android:id="@+id/user_sex_profile"
+            android:layout_width="75dp"
+            android:layout_height="75dp"
+            android:src="@drawable/male"
+            app:civ_border_color="@color/colorPrimary"
+            app:civ_border_width="2dp"
+            android:layout_gravity="center"
+            android:layout_marginTop="-30dp"
+            />
 
     </android.support.v7.widget.LinearLayoutCompat>
 

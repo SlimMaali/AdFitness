@@ -34,6 +34,7 @@ public class ProfileFragment extends Fragment {
         Profile P = (Profile)getArguments().getParcelable("profile");
         TextView nameField = (TextView)view.findViewById(R.id.user_name_profile);
         ImageView imageField = (ImageView)view.findViewById(R.id.user_img_profile);
+        ImageView sexField = (ImageView)view.findViewById(R.id.user_sex_profile);
         TextView birthdayField = (TextView)view.findViewById(R.id.user_birthday_profile);
         TextView phoneField = (TextView)view.findViewById(R.id.user_phone_profile);
         TextView weightField = (TextView)view.findViewById(R.id.user_weight_profile);
@@ -45,7 +46,8 @@ public class ProfileFragment extends Fragment {
         phoneField.setText(P.getUser().getPhone());
         weightField.setText(Float.toString(P.getWeight())+" KG");
         heightField.setText(Float.toString(P.getHeight())+" M");
-
+        if(P.getGender().equals("female"))
+            sexField.setImageResource(R.drawable.female);
         return view;
     }
     @Override
@@ -54,5 +56,37 @@ public class ProfileFragment extends Fragment {
         dashboardActivity = (DashboardActivity) context;
     }
 
+    public float calculateBMI(float weight,float height) {
+
+
+            float bmi = weight / (height * height);
+
+        return bmi;
+    }
+
+    private void displayBMI(float bmi) {
+        String bmiLabel = "";
+        /*
+        if (Float.compare(bmi, 15f) <= 0) {
+            bmiLabel = getString(R.string.very_severely_underweight);
+        } else if (Float.compare(bmi, 15f) > 0  &&  Float.compare(bmi, 16f) <= 0) {
+            bmiLabel = getString(R.string.severely_underweight);
+        } else if (Float.compare(bmi, 16f) > 0  &&  Float.compare(bmi, 18.5f) <= 0) {
+            bmiLabel = getString(R.string.underweight);
+        } else if (Float.compare(bmi, 18.5f) > 0  &&  Float.compare(bmi, 25f) <= 0) {
+            bmiLabel = getString(R.string.normal);
+        } else if (Float.compare(bmi, 25f) > 0  &&  Float.compare(bmi, 30f) <= 0) {
+            bmiLabel = getString(R.string.overweight);
+        } else if (Float.compare(bmi, 30f) > 0  &&  Float.compare(bmi, 35f) <= 0) {
+            bmiLabel = getString(R.string.obese_class_i);
+        } else if (Float.compare(bmi, 35f) > 0  &&  Float.compare(bmi, 40f) <= 0) {
+            bmiLabel = getString(R.string.obese_class_ii);
+        } else {
+            bmiLabel = getString(R.string.obese_class_iii);
+        }
+
+        bmiLabel = bmi + "\n\n" + bmiLabel;
+        result.setText(bmiLabel);*/
+    }
 
 }

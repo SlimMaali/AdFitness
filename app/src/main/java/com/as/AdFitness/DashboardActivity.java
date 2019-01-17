@@ -148,6 +148,7 @@ public class DashboardActivity extends AppCompatActivity implements NavigationVi
                             b.putParcelable("profile",response.body());
                             p.setArguments(b);
                             replaceFragment(p);
+                            getSupportActionBar().setTitle(response.body().getUser().getFirstName()+" "+response.body().getUser().getLastName());
                             drawerLayout.closeDrawer(GravityCompat.START);
                         }
                     }
@@ -191,7 +192,7 @@ public class DashboardActivity extends AppCompatActivity implements NavigationVi
         }
         finish();
     }
-
+/*
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
         MenuInflater inflater = getMenuInflater();
@@ -221,7 +222,7 @@ public class DashboardActivity extends AppCompatActivity implements NavigationVi
 
         return true;
     }
-
+*/
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
         // Handle action bar item clicks here. The action bar will
