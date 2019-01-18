@@ -2,71 +2,51 @@
 <ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
-    android:layout_width="fill_parent"
-    android:layout_height="fill_parent"
-    tools:context=".AdminHomeActivity">
-<LinearLayout
-    android:layout_width="match_parent"
+    android:layout_width="wrap_content"
     android:layout_height="wrap_content"
-    android:orientation="vertical">
-
+    tools:context=".AdminHomeActivity">
 
     <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="200dp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="vertical">
+
+
+        <LinearLayout
+            android:layout_width="400dp"
+            android:layout_height="150dp"
             android:orientation="horizontal">
 
             <ImageButton
                 android:id="@+id/imageButton1"
-                android:layout_width="0dp"
-                android:layout_height="match_parent"
-                android:layout_weight="1"
-                android:scaleType="fitCenter"
-                app:srcCompat="@drawable/gym_img" />
+                android:layout_width="200dp"
+                android:layout_height="150dp"
+                app:srcCompat="@drawable/usersedit" />
 
             <ImageButton
                 android:id="@+id/imageButton2"
-                android:layout_width="0dp"
-                android:layout_height="match_parent"
-                android:layout_weight="1"
-                android:scaleType="fitCenter"
-                app:srcCompat="@drawable/gym_img" />
+                android:layout_width="200dp"
+                android:layout_height="150dp"
+                app:srcCompat="@drawable/postsedit" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="400dp"
+            android:layout_height="150dp"
+            android:orientation="horizontal">
+
+            <ImageButton
+                android:id="@+id/imageButton4"
+                android:layout_width="200dp"
+                android:layout_height="150dp"
+                app:srcCompat="@drawable/roomsedit" />
+
             <ImageButton
                 android:id="@+id/imageButton3"
-                android:layout_width="0dp"
-                android:layout_height="match_parent"
-                android:layout_weight="1"
-                android:scaleType="fitCenter"
-                app:srcCompat="@drawable/gym_img" />
+                android:layout_width="200dp"
+                android:layout_height="150dp"
+                app:srcCompat="@drawable/sessionsedit" />
         </LinearLayout>
 
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="200dp"
-        android:orientation="horizontal">
-
-        <ImageButton
-                android:id="@+id/imageButton4"
-                android:layout_width="0dp"
-                android:layout_height="match_parent"
-                android:layout_weight="1"
-                android:scaleType="fitCenter"
-                app:srcCompat="@drawable/gym_img" />
-        <ImageButton
-                android:id="@+id/imageButton5"
-                android:layout_width="0dp"
-                android:layout_height="match_parent"
-                android:layout_weight="1"
-                android:scaleType="fitCenter"
-                app:srcCompat="@drawable/gym_img" />
-        <ImageButton
-                android:id="@+id/imageButton6"
-                android:layout_width="0dp"
-                android:layout_height="match_parent"
-                android:layout_weight="1"
-                android:scaleType="fitCenter"
-                app:srcCompat="@drawable/gym_img" />
-        </LinearLayout>
-
-</LinearLayout>
+    </LinearLayout>
 </ScrollView>

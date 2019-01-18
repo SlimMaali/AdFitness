@@ -1,0 +1,155 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".UserEdit">
+
+    <ScrollView
+        android:layout_width="fill_parent"
+        android:layout_height="fill_parent" >
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+    <android.support.v7.widget.LinearLayoutCompat
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:padding="20dp"
+        android:orientation="vertical">
+        <android.support.v7.widget.LinearLayoutCompat
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:padding="20dp"
+            android:orientation="vertical">
+
+
+
+
+            <com.mikhaellopez.circularimageview.CircularImageView
+                android:id="@+id/imageUser"
+                android:layout_width="150dp"
+                android:layout_height="150dp"
+                android:src="@drawable/avatar"
+                app:civ_border_color="@color/colorPrimary"
+                app:civ_border_width="10dp"
+                />
+
+            <android.support.v7.widget.AppCompatEditText
+                android:id="@+id/username"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@drawable/auth_editview_upper"
+                android:drawableLeft="@drawable/user"
+                android:drawablePadding="10dp"
+                android:drawableStart="@drawable/user"
+                android:hint="Username"
+                android:inputType="text"
+                android:padding="15dp" />
+
+
+            <android.support.v7.widget.AppCompatEditText
+                android:id="@+id/emailAddress"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@drawable/auth_editview_upper"
+                android:drawableLeft="@drawable/email"
+                android:drawablePadding="10dp"
+                android:drawableStart="@drawable/email"
+                android:hint="Email"
+                android:inputType="text"
+                android:padding="15dp" />
+
+
+            <android.support.v7.widget.AppCompatEditText
+                android:id="@+id/firstName"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@drawable/auth_editview_upper"
+                android:drawableLeft="@drawable/user"
+                android:drawablePadding="10dp"
+                android:drawableStart="@drawable/user"
+                android:hint="Prénom"
+                android:inputType="text"
+                android:padding="15dp" />
+
+
+            <android.support.v7.widget.AppCompatEditText
+                android:id="@+id/lastName"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@drawable/auth_editview_upper"
+                android:drawableLeft="@drawable/user"
+                android:drawablePadding="10dp"
+                android:drawableStart="@drawable/user"
+                android:hint="Nom de famille"
+                android:inputType="text"
+                android:padding="15dp" />
+
+            <android.support.v7.widget.AppCompatEditText
+                android:id="@+id/birthday"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@drawable/auth_editview_lower"
+                android:drawableLeft="@drawable/calendar"
+                android:drawableStart="@drawable/calendar"
+                android:drawablePadding="10dp"
+                android:hint="@string/birthday_hint"
+                android:inputType="text"
+                android:padding="15dp" />
+
+            <android.support.v7.widget.AppCompatEditText
+                android:id="@+id/phone"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@drawable/edittext_field_middle"
+                android:drawableLeft="@drawable/phone"
+                android:drawableStart="@drawable/phone"
+                android:drawablePadding="10dp"
+                android:hint="@string/phone_hint"
+                android:inputType="phone"
+                android:padding="15dp" />
+
+
+            <android.support.v7.widget.AppCompatEditText
+                android:id="@+id/password"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@drawable/auth_editview_upper"
+                android:drawableLeft="@drawable/password"
+                android:drawablePadding="10dp"
+                android:drawableStart="@drawable/password"
+                android:hint="Mot de passe"
+                android:inputType="text"
+                android:padding="15dp" />
+
+        </android.support.v7.widget.LinearLayoutCompat>
+
+
+
+
+        <android.support.v7.widget.LinearLayoutCompat
+            android:id="@+id/Editbtn"
+            android:layout_marginTop="10dp"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@drawable/app_button_radius"
+            android:orientation="vertical">
+
+            <android.support.v7.widget.AppCompatTextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textColor="@color/white"
+                android:layout_gravity="center"
+                android:padding="15dp"
+                android:text="Confirmer"/>
+
+        </android.support.v7.widget.LinearLayoutCompat>
+
+    </android.support.v7.widget.LinearLayoutCompat>
+
+        </RelativeLayout>
+    </ScrollView>
+</RelativeLayout>

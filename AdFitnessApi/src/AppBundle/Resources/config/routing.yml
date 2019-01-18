@@ -1,6 +1,9 @@
 api_register:
     path: /register/{username}/{password}/{email}/{birthday}/{role}/{firstName}/{lastName}/{phone}
     defaults: {_controller: AppBundle:User:register}
+api_edit:
+    path: /edit/{id}/{username}/{password}/{email}/{birthday}/{role}/{firstName}/{lastName}/{phone}
+    defaults: {_controller: AppBundle:User:edit}
 api_login:
     path: /login/{username}/{password}
     defaults: {_controller: AppBundle:User:login}

@@ -13,7 +13,8 @@
         <com.as.AdFitness.views.ExpandedListView
             android:id="@+id/listView_Posts"
             android:layout_width="match_parent"
-            android:layout_height="match_parent" />
+            android:layout_height="match_parent"
+            android:padding="25dp"/>
 
     </android.support.v7.widget.LinearLayoutCompat>
 

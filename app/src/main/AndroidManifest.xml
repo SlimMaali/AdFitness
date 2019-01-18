@@ -45,6 +45,9 @@
             android:name=".AdminHomeActivity"
             android:screenOrientation="landscape" />
         <activity android:name=".AdminUserActivity" />
+        <activity android:name=".AdminPostsActivity" />
+        <activity android:name=".UserEdit"></activity>
+        <activity android:name=".PostEdit"></activity>
     </application>
 
 </manifest>

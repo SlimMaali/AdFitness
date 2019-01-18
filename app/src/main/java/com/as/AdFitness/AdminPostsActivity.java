@@ -8,31 +8,31 @@ import android.widget.AdapterView;
 import android.widget.ImageButton;
 import android.widget.ListView;
 
-import com.as.AdFitness.adapters.UserAdapter;
-import com.as.AdFitness.entities.User;
+import com.as.AdFitness.adapters.PostAdapter;
+import com.as.AdFitness.entities.Post;
 
 import java.util.ArrayList;
 
-public class AdminUserActivity extends AppCompatActivity {
+public class AdminPostsActivity extends AppCompatActivity {
     private ListView listView;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_admin_user);
+        setContentView(R.layout.activity_admin_post);
 
-        final ArrayList<User> Users = getIntent().getParcelableArrayListExtra("users");
+        final ArrayList<Post> posts =getIntent().getParcelableArrayListExtra("posts");
         listView = findViewById(R.id.listView_Users);
-        UserAdapter adapter = new UserAdapter(this,Users);
+        PostAdapter adapter = new PostAdapter(this,posts);
 
         listView.setAdapter(adapter);
 
         listView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
-                User listItem = (User) listView.getItemAtPosition(position);
-                Intent edit = new Intent(AdminUserActivity.this,UserEdit.class);
-                edit.putExtra("User",listItem);
+                Post listItem = (Post) listView.getItemAtPosition(position);
+                Intent edit = new Intent(AdminPostsActivity.this,PostEdit.class);
+                edit.putExtra("Post",listItem);
                 startActivity(edit);
             }
         });
@@ -41,7 +41,7 @@ public class AdminUserActivity extends AppCompatActivity {
         iB.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent edit = new Intent(AdminUserActivity.this,UserEdit.class);
+                Intent edit = new Intent(AdminPostsActivity.this,PostEdit.class);
                 startActivity(edit);
             }
         });

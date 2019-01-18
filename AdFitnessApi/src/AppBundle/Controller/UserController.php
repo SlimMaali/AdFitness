@@ -29,6 +29,35 @@ class UserController extends Controller
         $formated = $serializer->normalize($user);
         return new JsonResponse($formated);
     }
+    public function editAction(Request $request)
+    {
+        $em = $this->getDoctrine()->getManager();
+        $user = $em->getRepository("AppBundle:User")->find($request->get('id'));
+
+
+        if(is_null($user))
+            return new JsonResponse("false");
+        else
+        {
+            $user->setUsername($request->get('username'));
+            $user->setPassword($request->get('password'));
+            $user->setEmail($request->get('email'));
+            $user->setBirthday($request->get('birthday'));
+            $user->setRole($request->get('role'));
+            $user->setFirstName($request->get('firstName'));
+            $user->setLastName($request->get('lastName'));
+            $user->setPhone($request->get('phone'));
+            $em->persist($user);
+            $em->flush();
+            return new JsonResponse("true");
+        }
+
+
+        $serializer = new Serializer([new ObjectNormalizer()]);
+        $formated = $serializer->normalize($user);
+        return new JsonResponse($formated);
+    }
+
     public function usernameExistAction(Request $request)
     {
         $user=$this->getDoctrine()->getManager()
