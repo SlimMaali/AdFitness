@@ -1,0 +1,22 @@
+AppBundle\Entity\trainingSession:
+    type: entity
+    table: null
+    repositoryClass: AppBundle\Repository\trainingSessionRepository
+    id:
+        id:
+            type: integer
+            id: true
+            generator:
+                strategy: AUTO
+    fields:
+        idUser:
+            type: integer
+        idSession:
+            type: integer
+        date:
+            type: date
+        duration:
+            type: integer
+        steps:
+            type: integer
+    lifecycleCallbacks: {  }

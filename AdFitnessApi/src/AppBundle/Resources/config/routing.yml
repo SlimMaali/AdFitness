@@ -88,3 +88,9 @@ api_post_list:
 api_post_edit:
     path:     /Post/edit/{id}/{Title}/{Image}/{Content}
     defaults: { _controller: AppBundle:Post:Edit }
+api_trainingSession:
+    path:     /trainingSession/show/{idUser}
+    defaults: { _controller: AppBundle:trainingSession:Show }
+api_trainingSession_all:
+    path:     /trainingSession/show
+    defaults: { _controller: AppBundle:trainingSession:Showall }
