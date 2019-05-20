@@ -18,17 +18,18 @@ class trainingSessionController extends Controller
     {
         $trainingSession=$this->getDoctrine()->getManager()
             ->getRepository('AppBundle:trainingSession')->findAll();
-        foreach ($trainingSession as $s)
-        {
-            $s->setdate($s->getdate());
-        }
         $serializer=new Serializer([new ObjectNormalizer()]);
         $formated=$serializer->normalize($trainingSession);
         return new JsonResponse($formated);
     }
 
-    public function  ShowAction(Request $idUser)
+    public function  ShowAction(Request $request)
     {
+        $trainingSession=$this->getDoctrine()->getManager()
+            ->getRepository('AppBundle:trainingSession')->getTrainingSessionByUser($request->get('idUser'));
 
+        $serializer=new Serializer([new ObjectNormalizer()]);
+        $formated=$serializer->normalize($trainingSession);
+        return new JsonResponse($formated);
     }
 }

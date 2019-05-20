@@ -10,4 +10,14 @@ namespace AppBundle\Repository;
  */
 class trainingSessionRepository extends \Doctrine\ORM\EntityRepository
 {
+    public function getTrainingSessionByUser($idUser)
+    {
+        $query=$this->getEntityManager()
+            ->createQuery("
+            select p from AppBundle:trainingSession p
+            WHERE p.idUser=:id")
+            ->setParameter('id',$idUser);
+        return $query->getResult();
+    }
+
 }
